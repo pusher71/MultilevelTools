@@ -1,0 +1,479 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B451FE74-BDC4-4EB6-A1D0-95EC619FDE42}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MultilevelLibrary</RootNamespace>
+    <AssemblyName>MultilevelLibrary</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PrimitiveData3D">
+      <HintPath>..\..\PrimitiveData3D\PrimitiveData3D\bin\Debug\PrimitiveData3D.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Constants.cs" />
+    <Compile Include="EmptyCondition.cs" />
+    <Compile Include="Generation\CyclesFinder.cs" />
+    <Compile Include="Generation\Model\Cycle.cs" />
+    <Compile Include="Generation\Model\GraphNodeLink.cs" />
+    <Compile Include="Generation\Model\PathPart.cs" />
+    <Compile Include="Generation\Model\IntensityMap.cs" />
+    <Compile Include="Generation\Model\TrapsZone.cs" />
+    <Compile Include="Generation\PathPartsFinder.cs" />
+    <Compile Include="Generation\TrapsZonesFinder.cs" />
+    <Compile Include="Generation\SubPathGroupsFinder.cs" />
+    <Compile Include="Generation\Model\SubPath.cs" />
+    <Compile Include="Generation\Model\SubPathGroup.cs" />
+    <Compile Include="Generation\TrapsFinder.cs" />
+    <Compile Include="GeneratorMain.cs" />
+    <Compile Include="Generation\Model\Ray.cs" />
+    <Compile Include="RectangleType.cs" />
+    <Compile Include="MazeMap.cs" />
+    <Compile Include="Decorator.cs" />
+    <Compile Include="Digger.cs" />
+    <Compile Include="GraphDirectionType.cs" />
+    <Compile Include="Drawing\DrawingPoint.cs" />
+    <Compile Include="Drawing\DrawingRectangle.cs" />
+    <Compile Include="Drawing\MazeDrawerConfig.cs" />
+    <Compile Include="Drawing\MazeDrawerConfig20.cs" />
+    <Compile Include="Drawing\MazeDrawerConfig50.cs" />
+    <Compile Include="GenerateException.cs" />
+    <Compile Include="GraphNode.cs" />
+    <Compile Include="MultilevelMaze.cs" />
+    <Compile Include="Drawing\MazeDrawer.cs" />
+    <Compile Include="MultilevelMazeIO.cs" />
+    <Compile Include="Graph.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Shuffler.cs" />
+    <Compile Include="StairsException.cs" />
+    <Compile Include="Utils.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="r.cs" />
+    <Compile Include="LogicPos.cs" />
+    <Compile Include="CliqueController.cs" />
+    <Compile Include="Generation\Model\AreaInfo.cs" />
+    <Compile Include="Generation\VisibilityProcessor.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\digit7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\digit8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\digit9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\icon_bottle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\icon_enemy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\icon_key.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\icon_player.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\lift_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\lift_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\lift_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\lift_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\radar_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\radar_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\radar_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\radar_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\roof_down_ccw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\roof_down_cw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\roof_left_ccw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\roof_left_cw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\roof_right_ccw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\roof_right_cw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\roof_up_ccw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\roof_up_cw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\safety_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\safety_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\safety_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\safety_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\save_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\save_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\save_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\save_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\stairs_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\stairs_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\stairs_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\stairs_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\window_h.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\window_v.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\camera_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\camera_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\camera_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\camera_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\digit0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\digit1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\digit2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\digit3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\digit4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\digit5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\digit6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\arrow50_corner_down_ccw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\arrow50_corner_down_cw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\arrow50_corner_left_ccw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\arrow50_corner_left_cw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\arrow50_corner_right_ccw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\arrow50_corner_right_cw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\arrow50_corner_up_ccw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\arrow50_corner_up_cw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\arrow20_corner_down_ccw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\arrow20_corner_down_cw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\arrow20_corner_left_ccw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\arrow20_corner_left_cw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\arrow20_corner_right_ccw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\arrow20_corner_right_cw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\arrow20_corner_up_ccw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\arrow20_corner_up_cw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\arrow50_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\arrow20_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\arrow20_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\arrow20_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\arrow20_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\arrow50_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\arrow50_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\arrow50_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\window20_v.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\key20_bottle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\key20_enemy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\key20_key.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\key20_player.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\window20_h.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\camera20_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\camera20_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\camera20_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\camera20_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\window50_v.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\camera50_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\camera50_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\camera50_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\camera50_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\key50_bottle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\key50_enemy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\key50_key.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\key50_player.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\window50_h.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\arrow50_lift.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\radar_room50_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\radar_room50_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\safety_room50_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\safety_room50_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\safety_room50_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\safety_room50_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\save_room50_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\save_room50_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\save_room50_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\save_room50_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\bottle50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\radar_room50_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\radar_room50_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lift50_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lift50_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lift50_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lift50_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\stairs50_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\stairs50_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\stairs50_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\stairs50_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\fire_tube50_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\lift50_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\lift50_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\lift50_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\lift50_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\roof50_down_ccw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\roof50_down_cw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\roof50_left_ccw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\roof50_left_cw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\roof50_right_ccw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\roof50_right_cw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\roof50_up_ccw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Textures\roof50_up_cw.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
