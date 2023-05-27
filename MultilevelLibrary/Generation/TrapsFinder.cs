@@ -23,30 +23,38 @@ namespace MultilevelLibrary.Generation
             {
                 TrapsZone trapsZone = trapsZones[i];
 
-                //создать температурные слои
+                //создать и вычислить температурные слои
                 List<IntensityMap> temperatureLayers = new List<IntensityMap>();
-                for (int j = 0; j < trapsZone.SafetySources.Length; j++)
-                    foreach (GraphNode node in trapsZone.SafetySources[j])
-                    {
-                        IntensityMap temperatureLayer = new IntensityMap(maze);
-                        temperatureLayer.AddIntensity(node, trapsZone.Target.Nodes.Count + 1, true);
-                        temperatureLayers.Add(temperatureLayer);
-                    }
+                CalculateTemperatureLayers(trapsZone, temperatureLayers);
 
                 //проверить все тупики на ловушки
                 foreach (GraphNode node in trapsZone.Target.Nodes)
-                    ProcessTrap(temperatureLayers, node, true);
+                    ProcessTrap(trapsZone, temperatureLayers, node, true);
 
                 //проверить все угловые позиции на ловушки
                 foreach (GraphNode node in trapsZone.Target.Nodes)
-                    ProcessTrap(temperatureLayers, node, false);
+                    ProcessTrap(trapsZone, temperatureLayers, node, false);
             }
 
             return trapsByFloor;
         }
 
+        //вычислить температурные слои
+        private static void CalculateTemperatureLayers(TrapsZone trapsZone, List<IntensityMap> temperatureLayers)
+        {
+            temperatureLayers.Clear();
+            for (int j = 0; j < trapsZone.SafetySources.Length; j++)
+                foreach (GraphNode node in trapsZone.SafetySources[j])
+                {
+                    IntensityMap temperatureLayer = new IntensityMap(maze);
+                    temperatureLayer.AddIntensity(node, trapsZone.Target.Nodes.Count + 1, true);
+                    temperatureLayers.Add(temperatureLayer);
+                }
+        }
+
+
         //обработать возможную ловушку
-        private static void ProcessTrap(List<IntensityMap> temperatureLayers, GraphNode node, bool checkOnlyDeadends)
+        private static void ProcessTrap(TrapsZone trapsZone, List<IntensityMap> temperatureLayers, GraphNode node, bool checkOnlyDeadends)
         {
             if (IsTrap(temperatureLayers, node, checkOnlyDeadends))
             {
@@ -73,8 +81,11 @@ namespace MultilevelLibrary.Generation
                     node.BreakConnectionWithNeighbour(dirWall);
                     nodeWall.BreakConnectionWithNeighbour(dirWall.TurnOpposite());
 
+                    //пересчитать температурные слои
+                    CalculateTemperatureLayers(trapsZone, temperatureLayers);
+
                     //проверить позицию за установленной стеной на ловушку
-                    ProcessTrap(temperatureLayers, nodeWall, checkOnlyDeadends);
+                    ProcessTrap(trapsZone, temperatureLayers, nodeWall, checkOnlyDeadends);
                 }
                 else //взять единственное направление как направление ловушки
                     trapDir = dirs[0];
