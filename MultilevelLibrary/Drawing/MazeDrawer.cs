@@ -40,7 +40,6 @@ namespace MultilevelLibrary.Drawing
 
             //получить элементы
             int itemFloor = maze.Map.Get(position);
-            int itemOverlap = maze.Map.Get(position);
             int itemFloorUnder = position.Z >= 2 ? maze.Map.Get(position + Vector3P.Down * 2) : Utils.IndexAir;
             int itemKey = Config.DrawKeyLayer && position.IsUneven() ? maze.KeyMap.Get(position / 2) : Utils.IndexAir;
             int itemFloorDirNumber = itemFloor % 10;
@@ -51,10 +50,6 @@ namespace MultilevelLibrary.Drawing
                 if (Utils.IsSaveRoom(itemFloor)) itemFloor = itemFloor - Utils.IndexSaveRoom + Utils.IndexSafetyRoom;
                 else if (Utils.IsRadarRoom(itemFloor)) itemFloor = itemFloor - Utils.IndexRadarRoom + Utils.IndexSafetyRoom;
             }
-
-            //пол на перекрытии имеется
-            if (Config.DrawOverlaps && itemOverlap == 1)
-                FillRectangle(-1, rect);
 
             //основной слой
             if (itemFloor != Utils.IndexAir)
