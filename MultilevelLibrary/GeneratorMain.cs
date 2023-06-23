@@ -265,42 +265,45 @@ namespace MultilevelLibrary
             maze.EnemyPosition = enemyPositions.First();
             maze.KeyMap.Set(maze.EnemyPosition.Position / 2, Utils.IndexEnemy);
 
-            if (enableSafety)
+            if (preferenceCamerasCount > 0)
             {
-                //пометить установленные безопасные комнаты
-                for (int i = 0; i < roomPositionsUsed.Count; i++)
-                    graph.GetGraphNode(roomPositionsUsed[i].Position / 2).IsSafetyRoom = true;
-
-                //создать группы подчастей путей, записывающих себя в GraphNodes (для ограничения расставления камер)
-                SubPathGroupsFinder.CreateSubPathGroups(maze, trapsZones);
-            }
-
-            //расставить камеры
-            IntensityMap camerasIntensityMap = new IntensityMap(maze);
-            r.Init(seed);
-            for (int i = 0; i < maze.CountInside; i++)
-                for (int j = 0; j < preferenceCamerasCount; j++)
+                if (enableSafety)
                 {
-                    //получить список позиций для камер
-                    IEnumerable<LogicPos> cameraPositons = maze.GetEmptyPositions(EmptyCondition.CAMERA, i, true)
-                        .Where(lp => !graph.GetGraphNode(lp.Position / 2).IsCameraProhibited)
-                        .OrderBy(lp => camerasIntensityMap.Get(lp.Position / 2));
+                    //пометить установленные безопасные комнаты
+                    for (int i = 0; i < roomPositionsUsed.Count; i++)
+                        graph.GetGraphNode(roomPositionsUsed[i].Position / 2).IsSafetyRoom = true;
 
-                    //завершить расставление камер на этаже, если позиций не осталось
-                    if (cameraPositons.Count() == 0)
-                        break;
-
-                    //поставить камеру
-                    LogicPos cameraPos = cameraPositons.First();
-                    maze.Map.Set(cameraPos.Position, cameraPos.Direction.Number + Utils.IndexCamera);
-
-                    //распространить интенсивность от камеры
-                    GraphNode cameraNode = graph.GetGraphNode(cameraPos.Position / 2);
-                    camerasIntensityMap.AddIntensity(cameraNode, Constants.CAMERA_INTENSITY);
-
-                    //оповестить о поставленной камере
-                    cameraNode.OnCameraPlaced();
+                    //создать группы подчастей путей, записывающих себя в GraphNodes (для ограничения расставления камер)
+                    SubPathGroupsFinder.CreateSubPathGroups(maze, trapsZones);
                 }
+
+                //расставить камеры
+                IntensityMap camerasIntensityMap = new IntensityMap(maze);
+                r.Init(seed);
+                for (int i = 0; i < maze.CountInside; i++)
+                    for (int j = 0; j < preferenceCamerasCount; j++)
+                    {
+                        //получить список позиций для камер
+                        IEnumerable<LogicPos> cameraPositons = maze.GetEmptyPositions(EmptyCondition.CAMERA, i, true)
+                            .Where(lp => !graph.GetGraphNode(lp.Position / 2).IsCameraProhibited)
+                            .OrderBy(lp => camerasIntensityMap.Get(lp.Position / 2));
+
+                        //завершить расставление камер на этаже, если позиций не осталось
+                        if (cameraPositons.Count() == 0)
+                            break;
+
+                        //поставить камеру
+                        LogicPos cameraPos = cameraPositons.First();
+                        maze.Map.Set(cameraPos.Position, cameraPos.Direction.Number + Utils.IndexCamera);
+
+                        //распространить интенсивность от камеры
+                        GraphNode cameraNode = graph.GetGraphNode(cameraPos.Position / 2);
+                        camerasIntensityMap.AddIntensity(cameraNode, Constants.CAMERA_INTENSITY);
+
+                        //оповестить о поставленной камере
+                        cameraNode.OnCameraPlaced();
+                    }
+            }
 
             //расставить ключи
             IntensityMap keysIntensityMap = new IntensityMap(maze);
