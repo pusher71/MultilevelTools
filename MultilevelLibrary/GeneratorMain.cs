@@ -15,7 +15,8 @@ namespace MultilevelLibrary
         //сгенерировать помещения с лифтом и лестницами
         public void Generate(MultilevelMaze maze, int seed,
             int safetyCount, int savePeriod, int radarCount, int stairsCount, int deleteWalls,
-            int liftPredel, int preferenceKeyCount, int preferenceBottlesCount, int preferenceCamerasCount, bool enableSafety)
+            int liftPredel, int preferenceKeyCount, int preferenceBottlesCount, int preferenceCamerasCount, bool enableSafety,
+            bool layersShuffled, bool holesEnabled, bool camerasEnabled)
         {
             this.maze = maze;
 
@@ -265,7 +266,7 @@ namespace MultilevelLibrary
             maze.EnemyPosition = enemyPositions.First();
             maze.KeyMap.Set(maze.EnemyPosition.Position / 2, Utils.IndexEnemy);
 
-            if (preferenceCamerasCount > 0)
+            if (camerasEnabled && preferenceCamerasCount > 0)
             {
                 if (enableSafety)
                 {
@@ -332,13 +333,38 @@ namespace MultilevelLibrary
             }
 
             //получить стили слоёв
-            int[] layerStyles = Utils.GetLayerStyles(maze);
+            int[] layerStyles = Utils.GetLayerStyles(maze, layersShuffled, seed);
 
             //расставить окна
             r.Init(seed);
             for (int i = 0; i < maze.CountInside; i++)
                 if (layerStyles[i * 2 + 1] >= Constants.STYLE_WITH_WINDOWS_THRESHOLD)
                     GenerateWindows(i * 2 + 1);
+
+            //продырявить полы
+            if (holesEnabled)
+            {
+                r.Init(seed);
+                for (int z = 0; z < maze.CountInside; z++)
+                    for (int y = 0; y < maze.Height; y++)
+                        for (int x = 0; x < maze.Width; x++)
+                        {
+                            Vector3P positionDown = new Vector3P(x, y, z) * 2 + 1;
+                            Vector3P position = positionDown + Vector3P.Up;
+                            Vector3P positionUp = position + Vector3P.Up;
+
+                            int itemDown = maze.Map.Get(positionDown);
+                            int item = maze.Map.Get(position);
+                            int itemUp = maze.Map.Get(positionUp);
+
+                            if (item == Utils.IndexWall &&
+                                (itemUp == Utils.IndexAir || Utils.IsCamera(itemUp)) &&
+                                (itemDown == Utils.IndexAir || Utils.IsCamera(itemDown) || itemDown == Utils.IndexStairsP) &&
+                                maze.KeyMap.Get(positionUp / 2) == Utils.IndexAir &&
+                                r.Next(Constants.HOLE_CHANCE) == 0)
+                                maze.Map.Set(position, Utils.IndexHole);
+                        }
+            }
 
             //расставить украшения
             r.Init(seed);

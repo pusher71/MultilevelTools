@@ -40,6 +40,7 @@ namespace MultilevelLibrary.Drawing
 
             //получить элементы
             int itemFloor = maze.Map.Get(position);
+            int itemOverlap = maze.Map.Get(position + Vector3P.Down);
             int itemFloorUnder = position.Z >= 2 ? maze.Map.Get(position + Vector3P.Down * 2) : Utils.IndexAir;
             int itemKey = Config.DrawKeyLayer && position.IsUneven() ? maze.KeyMap.Get(position / 2) : Utils.IndexAir;
             int itemFloorDirNumber = itemFloor % 10;
@@ -50,6 +51,10 @@ namespace MultilevelLibrary.Drawing
                 if (Utils.IsSaveRoom(itemFloor)) itemFloor = itemFloor - Utils.IndexSaveRoom + Utils.IndexSafetyRoom;
                 else if (Utils.IsRadarRoom(itemFloor)) itemFloor = itemFloor - Utils.IndexRadarRoom + Utils.IndexSafetyRoom;
             }
+
+            //дырка в полу
+            if (itemOverlap == Utils.IndexHole)
+                DrawHole(point);
 
             //основной слой
             if (itemFloor != Utils.IndexAir)
@@ -147,6 +152,7 @@ namespace MultilevelLibrary.Drawing
         protected abstract void DrawWindow(int dirNumber, DrawingPoint point); //нарисовать окно
         protected abstract void DrawFireTube(int dirNumber, DrawingPoint point); //нарисовать пожарный шест
         protected abstract void DrawBottleInRoom(DrawingPoint point); //нарисовать энергетик в комнате
+        protected abstract void DrawHole(DrawingPoint point); //нарисовать дырку в полу
         protected abstract void DrawKey(int itemKey, DrawingPoint point); //нарисовать ключевой объект
         protected abstract void DrawDoorEntrance(int dirNumber, DrawingPoint point); //нарисовать входную дверь
         protected abstract void DrawDecoration(int decorIndex, DrawingRectangle rect); //нарисовать украшение

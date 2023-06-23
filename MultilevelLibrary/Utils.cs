@@ -8,6 +8,7 @@ namespace MultilevelLibrary
         public const int IndexAir = 0; //пустота
         public const int IndexWall = 1; //стена
         public const int IndexStairsP = 2; //пассивный блок лестницы
+        public const int IndexHole = 3; //дырка в полу
         public const int IndexStairs = 20; //отсчёт ступенек
         public const int IndexSafetyRoom = 30; //отсчёт безопасных комнат
         public const int IndexRadarRoom = 40; //отсчёт радарных комнат
@@ -58,7 +59,7 @@ namespace MultilevelLibrary
         public static int GetRadarFloorMax(int count, bool liftExists) => (liftExists ? count : (int)Math.Ceiling(count * 2f / 3f)) - 1;
 
         //получить стили слоёв по вертикальным размерам помещения
-        public static int[] GetLayerStyles(MultilevelMaze maze)
+        public static int[] GetLayerStyles(MultilevelMaze maze, bool layersShuffled, int seed)
         {
             //вычислить порядок стилей слоёв
             int[] stylesOrder = new int[maze.CountInside % Constants.STYLES_COUNT];
@@ -83,6 +84,27 @@ namespace MultilevelLibrary
                 }
                 else //задать стиль крыши и выходной будки
                     layerStyles[i] = Constants.ROOF_STYLE;
+            }
+
+            //перемешать стили слоёв
+            if (layersShuffled)
+            {
+                r.Init(seed);
+                for (int i = 0; i < maze.CountInside; i++)
+                {
+                    int index1 = i * 2;
+                    int index2 = index1 + 1;
+
+                    int rnd1 = r.Next(i, maze.CountInside) * 2;
+                    int rnd2 = rnd1 + 1;
+
+                    int key1 = layerStyles[index1];
+                    int key2 = layerStyles[index2];
+                    layerStyles[index1] = layerStyles[rnd1];
+                    layerStyles[index2] = layerStyles[rnd2];
+                    layerStyles[rnd1] = key1;
+                    layerStyles[rnd2] = key2;
+                }
             }
 
             return layerStyles;

@@ -13,6 +13,7 @@
         public const int PLAYER_FLOOR = 0; //изначальный этаж игрока
         public const int ENEMY_FLOOR_NORMAL_THRESHOLD = 2; //минимальный этаж врага при нормальных ограничениях
         public const int WINDOW_CHANCE = 3; //шанс появления окна
+        public const int HOLE_CHANCE = 5; //шанс появления дырки в полу
         public const int BRIDGE_CAMERAS_THRESHOLD = 3; //допуск размещения камер на мостах
         public const int SAFETY_INTENSITY = 8; //интенсивность безопасных мест
         public const int PLAYER_INTENSITY = 8; //интенсивность игрока
