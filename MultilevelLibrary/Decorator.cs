@@ -53,7 +53,8 @@ namespace MultilevelLibrary
                     Vector3P position = new Vector3P(x, y, floor) * 2 + 1; //текущая позиция
                     if (maze.Map.Get(position) == Utils.IndexAir &&
                         maze.KeyMap.Get(position / 2) == Utils.IndexAir && //должна быть свободной
-                        maze.Map.Get(position + Vector3P.Down) == Utils.IndexWall) //и не над дыркой
+                        maze.Map.Get(position + Vector3P.Down) == Utils.IndexWall && //не над дыркой
+                        maze.Map.Get(position + Vector3P.Up) == Utils.IndexWall) //и не под дыркой
                     {
                         //получить набор максимум 9 смещений
                         List<int> offsets = new List<int>();
