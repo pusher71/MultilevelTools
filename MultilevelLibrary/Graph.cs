@@ -80,6 +80,12 @@ namespace MultilevelLibrary
                                 PreRoof = GetGraphNode(PreRoofPosition);
                             }
                         }
+
+                        //добавить направления на дырки в полу
+                        if (maze.Map.Get(position * 2 + 1 + Vector3P.Up) == Utils.IndexHole)
+                            AddDirection(currentNode, Vector3P.Up);
+                        if (maze.Map.Get(position * 2 + 1 + Vector3P.Down) == Utils.IndexHole)
+                            AddDirection(currentNode, Vector3P.Down);
                     }
 
             Polarize(Vector3P.Zero, GraphDirectionType.Bottom, false); //поляризовать вниз
