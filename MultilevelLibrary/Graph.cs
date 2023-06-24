@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using PrimitiveData3D;
 
 namespace MultilevelLibrary
@@ -96,9 +97,10 @@ namespace MultilevelLibrary
         //поляризовать
         private static readonly Queue<GraphNode> queueNodes = new Queue<GraphNode>(); //очередь посещаемых вершин
         private static readonly Queue<Vector3P> queueBackDirs = new Queue<Vector3P>(); //очередь задних направлений
-        public void Polarize(Vector3P finishPosition, GraphDirectionType dt, bool oneFloor)
+        public void Polarize(Vector3P finishPosition, GraphDirectionType dt, bool threeFloors)
         {
             GraphNode finishNode = GetGraphNode(finishPosition);
+            int startZ = finishPosition.Z;
 
             queueNodes.Clear();
             queueBackDirs.Clear();
@@ -122,7 +124,7 @@ namespace MultilevelLibrary
                             node.SetDirectionByType(dt, currentDir); //пометить его как направление следования
 
                         //добавить в очередь данные для обработки
-                        if (!oneFloor || currentDir.Z == 0)
+                        if (!threeFloors || Math.Abs(node.Position.Z + currentDir.Z - startZ) <= 1)
                         {
                             queueNodes.Enqueue(node.GetNeighbour(currentDir));
                             queueBackDirs.Enqueue(-currentDir);
