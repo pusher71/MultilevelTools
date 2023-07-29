@@ -356,11 +356,12 @@ namespace MultilevelLibrary
                             int itemDown = maze.Map.Get(positionDown);
                             int item = maze.Map.Get(position);
                             int itemUp = maze.Map.Get(positionUp);
+                            int itemUpKey = maze.KeyMap.Get(positionUp / 2);
 
                             if (item == Utils.IndexWall &&
                                 (itemUp == Utils.IndexAir || Utils.IsCamera(itemUp)) &&
                                 (itemDown == Utils.IndexAir || Utils.IsCamera(itemDown) || itemDown == Utils.IndexStairsP) &&
-                                maze.KeyMap.Get(positionUp / 2) == Utils.IndexAir &&
+                                (itemUpKey == Utils.IndexAir || itemUpKey == Utils.IndexEnemy) &&
                                 r.Next(Constants.HOLE_CHANCE) == 0)
                                 maze.Map.Set(position, Utils.IndexHole);
                         }
