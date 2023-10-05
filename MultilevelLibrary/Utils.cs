@@ -59,7 +59,7 @@ namespace MultilevelLibrary
         public static int GetRadarFloorMax(int count, bool liftExists) => (liftExists ? count : (int)Math.Ceiling(count * 2f / 3f)) - 1;
 
         //получить стили слоёв по вертикальным размерам помещения
-        public static int[] GetLayerStyles(MultilevelMaze maze, bool layersShuffled, int seed)
+        public static int[] GetLayerStyles(MultilevelMaze maze, int seed, bool layersShuffled, bool layers9)
         {
             //вычислить порядок стилей слоёв
             int[] stylesOrder = new int[maze.CountInside % Constants.STYLES_COUNT];
@@ -76,11 +76,16 @@ namespace MultilevelLibrary
                 if (i < maze.CountInside * 2)
                 {
                     //задать стиль этажа
-                    int floor = i / 2;
-                    int style = floor < maze.CountInside - stylesOrder.Length
-                        ? floor % Constants.STYLES_COUNT
-                        : stylesOrder[floor % Constants.STYLES_COUNT];
-                    layerStyles[i] = style;
+                    if (layers9)
+                        layerStyles[i] = 8;
+                    else
+                    {
+                        int floor = i / 2;
+                        int style = floor < maze.CountInside - stylesOrder.Length
+                            ? floor % Constants.STYLES_COUNT
+                            : stylesOrder[floor % Constants.STYLES_COUNT];
+                        layerStyles[i] = style;
+                    }
                 }
                 else //задать стиль крыши и выходной будки
                     layerStyles[i] = Constants.ROOF_STYLE;

@@ -16,7 +16,7 @@ namespace MultilevelLibrary
         public void Generate(MultilevelMaze maze, int seed,
             int safetyCount, int savePeriod, int radarCount, int stairsCount, int deleteWalls,
             int liftPredel, int preferenceKeyCount, int preferenceBottlesCount, int preferenceCamerasCount, bool enableSafety,
-            bool layersShuffled, bool holesEnabled, bool camerasEnabled)
+            bool layersShuffled, bool layers9, bool holesEnabled, bool camerasEnabled)
         {
             this.maze = maze;
 
@@ -333,7 +333,7 @@ namespace MultilevelLibrary
             }
 
             //получить стили слоёв
-            int[] layerStyles = Utils.GetLayerStyles(maze, layersShuffled, seed);
+            int[] layerStyles = Utils.GetLayerStyles(maze, seed, layersShuffled, layers9);
 
             //расставить окна
             r.Init(seed);
