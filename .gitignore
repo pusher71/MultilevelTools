@@ -26,8 +26,6 @@ _UpgradeReport_Files/
 bin/
 obj/
 TestResults/
-MultilevelEditor/
-MultilevelViewer/
 ###################
 # Web publish log #
 ###################

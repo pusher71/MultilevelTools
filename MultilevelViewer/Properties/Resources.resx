@@ -1,0 +1,352 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="arrow20_corner_down_ccw" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\arrow20_corner_down_ccw.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="arrow20_corner_down_cw" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\arrow20_corner_down_cw.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="arrow20_corner_left_ccw" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\arrow20_corner_left_ccw.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="arrow20_corner_left_cw" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\arrow20_corner_left_cw.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="arrow20_corner_right_ccw" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\arrow20_corner_right_ccw.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="arrow20_corner_right_cw" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\arrow20_corner_right_cw.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="arrow20_corner_up_ccw" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\arrow20_corner_up_ccw.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="arrow20_corner_up_cw" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\arrow20_corner_up_cw.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="arrow20_down" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\arrow20_down.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="arrow20_left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\arrow20_left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="arrow20_right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\arrow20_right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="arrow20_up" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\arrow20_up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bottle20" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\bottle20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bottle50" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\bottle50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="camera20_down" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\camera20_down.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="camera20_left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\camera20_left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="camera20_right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\camera20_right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="camera20_up" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\camera20_up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="camera50_down" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\camera50_down.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="camera50_left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\camera50_left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="camera50_right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\camera50_right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="camera50_up" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\camera50_up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="digit0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\digit0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="digit1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\digit1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="digit2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\digit2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="digit3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\digit3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="digit4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\digit4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="digit5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\digit5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="digit6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\digit6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="digit7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\digit7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="digit8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\digit8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="digit9" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\digit9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="door_entrance20_down" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\door_entrance20_down.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="door_entrance20_left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\door_entrance20_left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="door_entrance20_right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\door_entrance20_right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="door_entrance20_up" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\door_entrance20_up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fire_tube50_left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\fire_tube50_left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="hole20" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\hole20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="hole50" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\hole50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="key20_enemy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\key20_enemy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="key20_key" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\key20_key.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="key20_player" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\key20_player.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="key50_enemy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\key50_enemy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="key50_key" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\key50_key.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="key50_player" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\key50_player.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lift50_down" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\lift50_down.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lift50_left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\lift50_left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lift50_right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\lift50_right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lift50_up" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\lift50_up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="radar_room50_down" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\radar_room50_down.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="radar_room50_left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\radar_room50_left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="radar_room50_right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\radar_room50_right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="radar_room50_up" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\radar_room50_up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="roof50_down_ccw" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\roof50_down_ccw.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="roof50_down_cw" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\roof50_down_cw.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="roof50_left_ccw" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\roof50_left_ccw.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="roof50_left_cw" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\roof50_left_cw.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="roof50_right_ccw" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\roof50_right_ccw.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="roof50_right_cw" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\roof50_right_cw.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="roof50_up_ccw" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\roof50_up_ccw.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="roof50_up_cw" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\roof50_up_cw.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="safety_room50_down" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\safety_room50_down.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="safety_room50_left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\safety_room50_left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="safety_room50_right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\safety_room50_right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="safety_room50_up" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\safety_room50_up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="save_room50_down" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\save_room50_down.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="save_room50_left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\save_room50_left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="save_room50_right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\save_room50_right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="save_room50_up" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\save_room50_up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="stairs50_down" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\stairs50_down.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="stairs50_left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\stairs50_left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="stairs50_right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\stairs50_right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="stairs50_up" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\stairs50_up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="window20_h" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\window20_h.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="window20_v" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\window20_v.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="window50_h" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\window50_h.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="window50_v" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Textures\window50_v.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+</root>
