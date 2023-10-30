@@ -35,15 +35,6 @@
             this.saveimage = new System.Windows.Forms.SaveFileDialog();
             this.buttonSaveImage = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.checkBoxEnableSafety = new System.Windows.Forms.CheckBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.numericBottlesCount = new System.Windows.Forms.NumericUpDown();
-            this.label11 = new System.Windows.Forms.Label();
-            this.numericRadarCount = new System.Windows.Forms.NumericUpDown();
-            this.label10 = new System.Windows.Forms.Label();
-            this.numericSafetyCount = new System.Windows.Forms.NumericUpDown();
-            this.label9 = new System.Windows.Forms.Label();
-            this.numericCamerasCount = new System.Windows.Forms.NumericUpDown();
             this.label8 = new System.Windows.Forms.Label();
             this.numericKeyCount = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
@@ -54,8 +45,6 @@
             this.numericDeleteWalls = new System.Windows.Forms.NumericUpDown();
             this.numericStairsCount = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
-            this.numericSavePeriod = new System.Windows.Forms.NumericUpDown();
-            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.numericHeight = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
@@ -65,16 +54,7 @@
             this.buttonNew = new System.Windows.Forms.Button();
             this.checkKeys = new System.Windows.Forms.CheckBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.radioHard = new System.Windows.Forms.RadioButton();
-            this.radioNormal = new System.Windows.Forms.RadioButton();
-            this.radioEasy = new System.Windows.Forms.RadioButton();
-            this.checkRooms = new System.Windows.Forms.CheckBox();
             this.checkDecorations = new System.Windows.Forms.CheckBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.conditionRadarFloor = new System.Windows.Forms.CheckBox();
-            this.conditionSaveFloor = new System.Windows.Forms.CheckBox();
-            this.numericRadarFloor = new System.Windows.Forms.NumericUpDown();
-            this.numericSaveFloor = new System.Windows.Forms.NumericUpDown();
             this.checkForGame = new System.Windows.Forms.CheckBox();
             this.buttonSaveAtlas = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -83,29 +63,19 @@
             this.buttonOpenModel = new System.Windows.Forms.Button();
             this.opendialog = new System.Windows.Forms.OpenFileDialog();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.checkBoxCamerasEnabled = new System.Windows.Forms.CheckBox();
+            this.checkBoxLayers9 = new System.Windows.Forms.CheckBox();
             this.checkBoxHolesEnabled = new System.Windows.Forms.CheckBox();
             this.checkBoxLayersShuffled = new System.Windows.Forms.CheckBox();
-            this.checkBoxLayers9 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericSeed)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericBottlesCount)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericRadarCount)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericSafetyCount)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericCamerasCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericKeyCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericLiftPredel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericDeleteWalls)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericStairsCount)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericSavePeriod)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericHeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericWidth)).BeginInit();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericRadarFloor)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericSaveFloor)).BeginInit();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericAtlasCountX)).BeginInit();
             this.groupBox5.SuspendLayout();
@@ -170,15 +140,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.checkBoxEnableSafety);
-            this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Controls.Add(this.numericBottlesCount);
-            this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Controls.Add(this.numericRadarCount);
-            this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.numericSafetyCount);
-            this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.numericCamerasCount);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.numericKeyCount);
             this.groupBox1.Controls.Add(this.label7);
@@ -191,8 +152,6 @@
             this.groupBox1.Controls.Add(this.numericSeed);
             this.groupBox1.Controls.Add(this.numericStairsCount);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.numericSavePeriod);
-            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.numericHeight);
             this.groupBox1.Controls.Add(this.label1);
@@ -204,124 +163,10 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Параметры";
             // 
-            // checkBoxEnableSafety
-            // 
-            this.checkBoxEnableSafety.AutoSize = true;
-            this.checkBoxEnableSafety.Location = new System.Drawing.Point(6, 358);
-            this.checkBoxEnableSafety.Name = "checkBoxEnableSafety";
-            this.checkBoxEnableSafety.Size = new System.Drawing.Size(213, 17);
-            this.checkBoxEnableSafety.TabIndex = 27;
-            this.checkBoxEnableSafety.Text = "Включить алгоритм обезопасивания";
-            this.checkBoxEnableSafety.UseVisualStyleBackColor = true;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(6, 307);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(224, 13);
-            this.label12.TabIndex = 26;
-            this.label12.Text = "Предпочитаемое количество энергетиков:";
-            // 
-            // numericBottlesCount
-            // 
-            this.numericBottlesCount.Location = new System.Drawing.Point(300, 305);
-            this.numericBottlesCount.Maximum = new decimal(new int[] {
-            11200,
-            0,
-            0,
-            0});
-            this.numericBottlesCount.Name = "numericBottlesCount";
-            this.numericBottlesCount.Size = new System.Drawing.Size(50, 20);
-            this.numericBottlesCount.TabIndex = 25;
-            this.numericBottlesCount.Value = new decimal(new int[] {
-            4,
-            0,
-            0,
-            0});
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(6, 177);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(232, 13);
-            this.label11.TabIndex = 24;
-            this.label11.Text = "Количество радарных комнат в помещении:";
-            // 
-            // numericRadarCount
-            // 
-            this.numericRadarCount.Location = new System.Drawing.Point(300, 175);
-            this.numericRadarCount.Maximum = new decimal(new int[] {
-            11200,
-            0,
-            0,
-            0});
-            this.numericRadarCount.Name = "numericRadarCount";
-            this.numericRadarCount.Size = new System.Drawing.Size(50, 20);
-            this.numericRadarCount.TabIndex = 23;
-            this.numericRadarCount.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(6, 125);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(222, 13);
-            this.label10.TabIndex = 22;
-            this.label10.Text = "Количество безопасных комнат на этаже:";
-            // 
-            // numericSafetyCount
-            // 
-            this.numericSafetyCount.Location = new System.Drawing.Point(300, 123);
-            this.numericSafetyCount.Maximum = new decimal(new int[] {
-            112,
-            0,
-            0,
-            0});
-            this.numericSafetyCount.Name = "numericSafetyCount";
-            this.numericSafetyCount.Size = new System.Drawing.Size(50, 20);
-            this.numericSafetyCount.TabIndex = 21;
-            this.numericSafetyCount.Value = new decimal(new int[] {
-            2,
-            0,
-            0,
-            0});
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 333);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(153, 13);
-            this.label9.TabIndex = 20;
-            this.label9.Text = "Количество камер на этаже:";
-            // 
-            // numericCamerasCount
-            // 
-            this.numericCamerasCount.Location = new System.Drawing.Point(300, 331);
-            this.numericCamerasCount.Maximum = new decimal(new int[] {
-            112,
-            0,
-            0,
-            0});
-            this.numericCamerasCount.Name = "numericCamerasCount";
-            this.numericCamerasCount.Size = new System.Drawing.Size(50, 20);
-            this.numericCamerasCount.TabIndex = 19;
-            this.numericCamerasCount.Value = new decimal(new int[] {
-            4,
-            0,
-            0,
-            0});
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 281);
+            this.label8.Location = new System.Drawing.Point(6, 203);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(197, 13);
             this.label8.TabIndex = 18;
@@ -329,9 +174,9 @@
             // 
             // numericKeyCount
             // 
-            this.numericKeyCount.Location = new System.Drawing.Point(300, 279);
+            this.numericKeyCount.Location = new System.Drawing.Point(300, 201);
             this.numericKeyCount.Maximum = new decimal(new int[] {
-            11200,
+            9,
             0,
             0,
             0});
@@ -339,7 +184,7 @@
             this.numericKeyCount.Size = new System.Drawing.Size(50, 20);
             this.numericKeyCount.TabIndex = 17;
             this.numericKeyCount.Value = new decimal(new int[] {
-            16,
+            9,
             0,
             0,
             0});
@@ -347,7 +192,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 255);
+            this.label7.Location = new System.Drawing.Point(6, 177);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(82, 13);
             this.label7.TabIndex = 16;
@@ -355,7 +200,7 @@
             // 
             // numericLiftPredel
             // 
-            this.numericLiftPredel.Location = new System.Drawing.Point(300, 253);
+            this.numericLiftPredel.Location = new System.Drawing.Point(300, 175);
             this.numericLiftPredel.Maximum = new decimal(new int[] {
             16,
             0,
@@ -400,7 +245,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 229);
+            this.label5.Location = new System.Drawing.Point(6, 151);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(203, 13);
             this.label5.TabIndex = 12;
@@ -408,7 +253,7 @@
             // 
             // numericDeleteWalls
             // 
-            this.numericDeleteWalls.Location = new System.Drawing.Point(300, 227);
+            this.numericDeleteWalls.Location = new System.Drawing.Point(300, 149);
             this.numericDeleteWalls.Maximum = new decimal(new int[] {
             202,
             0,
@@ -425,7 +270,7 @@
             // 
             // numericStairsCount
             // 
-            this.numericStairsCount.Location = new System.Drawing.Point(300, 201);
+            this.numericStairsCount.Location = new System.Drawing.Point(300, 123);
             this.numericStairsCount.Maximum = new decimal(new int[] {
             112,
             0,
@@ -448,32 +293,11 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 203);
+            this.label4.Location = new System.Drawing.Point(6, 125);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(256, 13);
             this.label4.TabIndex = 9;
             this.label4.Text = "Количество лестниц между соседними этажами:";
-            // 
-            // numericSavePeriod
-            // 
-            this.numericSavePeriod.Location = new System.Drawing.Point(300, 149);
-            this.numericSavePeriod.Name = "numericSavePeriod";
-            this.numericSavePeriod.Size = new System.Drawing.Size(50, 20);
-            this.numericSavePeriod.TabIndex = 6;
-            this.numericSavePeriod.Value = new decimal(new int[] {
-            3,
-            0,
-            0,
-            0});
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 151);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(160, 13);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Период сохраняющих комнат:";
             // 
             // label2
             // 
@@ -577,63 +401,12 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.radioHard);
-            this.groupBox2.Controls.Add(this.radioNormal);
-            this.groupBox2.Controls.Add(this.radioEasy);
             this.groupBox2.Location = new System.Drawing.Point(12, 517);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(174, 253);
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Режимы игры";
-            // 
-            // radioHard
-            // 
-            this.radioHard.AutoSize = true;
-            this.radioHard.Location = new System.Drawing.Point(110, 65);
-            this.radioHard.Name = "radioHard";
-            this.radioHard.Size = new System.Drawing.Size(48, 17);
-            this.radioHard.TabIndex = 29;
-            this.radioHard.Text = "Hard";
-            this.radioHard.UseVisualStyleBackColor = true;
-            this.radioHard.CheckedChanged += new System.EventHandler(this.radioHard_CheckedChanged);
-            // 
-            // radioNormal
-            // 
-            this.radioNormal.AutoSize = true;
-            this.radioNormal.Location = new System.Drawing.Point(110, 42);
-            this.radioNormal.Name = "radioNormal";
-            this.radioNormal.Size = new System.Drawing.Size(58, 17);
-            this.radioNormal.TabIndex = 28;
-            this.radioNormal.Text = "Normal";
-            this.radioNormal.UseVisualStyleBackColor = true;
-            this.radioNormal.CheckedChanged += new System.EventHandler(this.radioNormal_CheckedChanged);
-            // 
-            // radioEasy
-            // 
-            this.radioEasy.AutoSize = true;
-            this.radioEasy.Checked = true;
-            this.radioEasy.Location = new System.Drawing.Point(110, 19);
-            this.radioEasy.Name = "radioEasy";
-            this.radioEasy.Size = new System.Drawing.Size(48, 17);
-            this.radioEasy.TabIndex = 27;
-            this.radioEasy.TabStop = true;
-            this.radioEasy.Text = "Easy";
-            this.radioEasy.UseVisualStyleBackColor = true;
-            this.radioEasy.CheckedChanged += new System.EventHandler(this.radioEasy_CheckedChanged);
-            // 
-            // checkRooms
-            // 
-            this.checkRooms.AutoSize = true;
-            this.checkRooms.Checked = true;
-            this.checkRooms.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkRooms.Location = new System.Drawing.Point(138, 405);
-            this.checkRooms.Name = "checkRooms";
-            this.checkRooms.Size = new System.Drawing.Size(213, 17);
-            this.checkRooms.TabIndex = 16;
-            this.checkRooms.Text = "Показывать тип безопасных комнат";
-            this.checkRooms.UseVisualStyleBackColor = true;
-            this.checkRooms.CheckedChanged += new System.EventHandler(this.DrawMansion);
             // 
             // checkDecorations
             // 
@@ -645,83 +418,6 @@
             this.checkDecorations.Text = "Показывать украшения";
             this.checkDecorations.UseVisualStyleBackColor = true;
             this.checkDecorations.CheckedChanged += new System.EventHandler(this.DrawMansion);
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.conditionRadarFloor);
-            this.groupBox3.Controls.Add(this.conditionSaveFloor);
-            this.groupBox3.Controls.Add(this.numericRadarFloor);
-            this.groupBox3.Controls.Add(this.numericSaveFloor);
-            this.groupBox3.Location = new System.Drawing.Point(192, 619);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(176, 71);
-            this.groupBox3.TabIndex = 18;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Условия генерации";
-            // 
-            // conditionRadarFloor
-            // 
-            this.conditionRadarFloor.AutoSize = true;
-            this.conditionRadarFloor.Location = new System.Drawing.Point(6, 46);
-            this.conditionRadarFloor.Name = "conditionRadarFloor";
-            this.conditionRadarFloor.Size = new System.Drawing.Size(94, 17);
-            this.conditionRadarFloor.TabIndex = 5;
-            this.conditionRadarFloor.Text = "Этаж радара:";
-            this.conditionRadarFloor.UseVisualStyleBackColor = true;
-            // 
-            // conditionSaveFloor
-            // 
-            this.conditionSaveFloor.AutoSize = true;
-            this.conditionSaveFloor.Location = new System.Drawing.Point(6, 22);
-            this.conditionSaveFloor.Name = "conditionSaveFloor";
-            this.conditionSaveFloor.Size = new System.Drawing.Size(99, 17);
-            this.conditionSaveFloor.TabIndex = 4;
-            this.conditionSaveFloor.Text = "Этаж кровати:";
-            this.conditionSaveFloor.UseVisualStyleBackColor = true;
-            // 
-            // numericRadarFloor
-            // 
-            this.numericRadarFloor.Location = new System.Drawing.Point(120, 45);
-            this.numericRadarFloor.Maximum = new decimal(new int[] {
-            14,
-            0,
-            0,
-            0});
-            this.numericRadarFloor.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericRadarFloor.Name = "numericRadarFloor";
-            this.numericRadarFloor.Size = new System.Drawing.Size(50, 20);
-            this.numericRadarFloor.TabIndex = 3;
-            this.numericRadarFloor.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // numericSaveFloor
-            // 
-            this.numericSaveFloor.Location = new System.Drawing.Point(120, 19);
-            this.numericSaveFloor.Maximum = new decimal(new int[] {
-            14,
-            0,
-            0,
-            0});
-            this.numericSaveFloor.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericSaveFloor.Name = "numericSaveFloor";
-            this.numericSaveFloor.Size = new System.Drawing.Size(50, 20);
-            this.numericSaveFloor.TabIndex = 1;
-            this.numericSaveFloor.Value = new decimal(new int[] {
-            2,
-            0,
-            0,
-            0});
             // 
             // checkForGame
             // 
@@ -750,7 +446,7 @@
             this.groupBox4.Controls.Add(this.buttonSaveAtlas);
             this.groupBox4.Controls.Add(this.label13);
             this.groupBox4.Controls.Add(this.numericAtlasCountX);
-            this.groupBox4.Location = new System.Drawing.Point(192, 696);
+            this.groupBox4.Location = new System.Drawing.Point(192, 619);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(176, 74);
             this.groupBox4.TabIndex = 2;
@@ -800,7 +496,6 @@
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.checkBoxLayers9);
-            this.groupBox5.Controls.Add(this.checkBoxCamerasEnabled);
             this.groupBox5.Controls.Add(this.checkBoxHolesEnabled);
             this.groupBox5.Controls.Add(this.checkBoxLayersShuffled);
             this.groupBox5.Location = new System.Drawing.Point(192, 517);
@@ -810,17 +505,15 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Experimental";
             // 
-            // checkBoxCamerasEnabled
+            // checkBoxLayers9
             // 
-            this.checkBoxCamerasEnabled.AutoSize = true;
-            this.checkBoxCamerasEnabled.Checked = true;
-            this.checkBoxCamerasEnabled.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxCamerasEnabled.Location = new System.Drawing.Point(6, 65);
-            this.checkBoxCamerasEnabled.Name = "checkBoxCamerasEnabled";
-            this.checkBoxCamerasEnabled.Size = new System.Drawing.Size(67, 17);
-            this.checkBoxCamerasEnabled.TabIndex = 2;
-            this.checkBoxCamerasEnabled.Text = "Камеры";
-            this.checkBoxCamerasEnabled.UseVisualStyleBackColor = true;
+            this.checkBoxLayers9.AutoSize = true;
+            this.checkBoxLayers9.Location = new System.Drawing.Point(132, 19);
+            this.checkBoxLayers9.Name = "checkBoxLayers9";
+            this.checkBoxLayers9.Size = new System.Drawing.Size(32, 17);
+            this.checkBoxLayers9.TabIndex = 3;
+            this.checkBoxLayers9.Text = "9";
+            this.checkBoxLayers9.UseVisualStyleBackColor = true;
             // 
             // checkBoxHolesEnabled
             // 
@@ -842,16 +535,6 @@
             this.checkBoxLayersShuffled.Text = "Слои перемешаны";
             this.checkBoxLayersShuffled.UseVisualStyleBackColor = true;
             // 
-            // checkBoxLayers9
-            // 
-            this.checkBoxLayers9.AutoSize = true;
-            this.checkBoxLayers9.Location = new System.Drawing.Point(132, 19);
-            this.checkBoxLayers9.Name = "checkBoxLayers9";
-            this.checkBoxLayers9.Size = new System.Drawing.Size(32, 17);
-            this.checkBoxLayers9.TabIndex = 3;
-            this.checkBoxLayers9.Text = "9";
-            this.checkBoxLayers9.UseVisualStyleBackColor = true;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -861,9 +544,7 @@
             this.Controls.Add(this.buttonOpenModel);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.checkForGame);
-            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.checkDecorations);
-            this.Controls.Add(this.checkRooms);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.checkKeys);
             this.Controls.Add(this.buttonNew);
@@ -880,24 +561,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericSeed)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericBottlesCount)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericRadarCount)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericSafetyCount)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericCamerasCount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericKeyCount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericLiftPredel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericCount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericDeleteWalls)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericStairsCount)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericSavePeriod)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericHeight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericWidth)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericRadarFloor)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericSaveFloor)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericAtlasCountX)).EndInit();
@@ -918,8 +588,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.NumericUpDown numericStairsCount;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.NumericUpDown numericSavePeriod;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.NumericUpDown numericHeight;
         private System.Windows.Forms.Label label1;
@@ -936,35 +604,16 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.NumericUpDown numericKeyCount;
         private System.Windows.Forms.CheckBox checkKeys;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.NumericUpDown numericCamerasCount;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.NumericUpDown numericSafetyCount;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.NumericUpDown numericRadarCount;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.RadioButton radioHard;
-        private System.Windows.Forms.RadioButton radioNormal;
-        private System.Windows.Forms.RadioButton radioEasy;
-        private System.Windows.Forms.CheckBox checkRooms;
         private System.Windows.Forms.CheckBox checkDecorations;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.NumericUpDown numericBottlesCount;
-        private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.CheckBox checkForGame;
         private System.Windows.Forms.Button buttonSaveAtlas;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.NumericUpDown numericAtlasCountX;
-        private System.Windows.Forms.CheckBox conditionRadarFloor;
-        private System.Windows.Forms.CheckBox conditionSaveFloor;
-        private System.Windows.Forms.NumericUpDown numericRadarFloor;
-        private System.Windows.Forms.NumericUpDown numericSaveFloor;
         private System.Windows.Forms.Button buttonOpenModel;
         private System.Windows.Forms.OpenFileDialog opendialog;
-        private System.Windows.Forms.CheckBox checkBoxEnableSafety;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.CheckBox checkBoxCamerasEnabled;
         private System.Windows.Forms.CheckBox checkBoxHolesEnabled;
         private System.Windows.Forms.CheckBox checkBoxLayersShuffled;
         private System.Windows.Forms.CheckBox checkBoxLayers9;

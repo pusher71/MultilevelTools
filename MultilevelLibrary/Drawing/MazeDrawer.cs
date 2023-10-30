@@ -45,13 +45,6 @@ namespace MultilevelLibrary.Drawing
             int itemKey = Config.DrawKeyLayer && position.IsUneven() ? maze.KeyMap.Get(position / 2) : Utils.IndexAir;
             int itemFloorDirNumber = itemFloor % 10;
 
-            //засекретить тип комнаты
-            if (!Config.DrawSafetyRoomsType)
-            {
-                if (Utils.IsSaveRoom(itemFloor)) itemFloor = itemFloor - Utils.IndexSaveRoom + Utils.IndexSafetyRoom;
-                else if (Utils.IsRadarRoom(itemFloor)) itemFloor = itemFloor - Utils.IndexRadarRoom + Utils.IndexSafetyRoom;
-            }
-
             //дырка в полу
             if (itemOverlap == Utils.IndexHole)
                 DrawHole(point);
@@ -66,12 +59,10 @@ namespace MultilevelLibrary.Drawing
 
                 if (isSolidColor) //сплошной цвет
                 {
-                    int colorIndex = (Config.IsArrow(itemFloor) || Config.IsArrowCorner(itemFloor)) ? itemFloor / 10 : itemFloor;
+                    int colorIndex = Config.IsArrow(itemFloor) ? itemFloor / 10 : itemFloor;
                     FillRectangle(colorIndex, rect);
                     if (Config.IsArrow(itemFloor))
                         DrawArrow(itemFloorDirNumber, point);
-                    else if (Config.IsArrowCorner(itemFloor))
-                        DrawArrowCorner(itemFloorDirNumber, point);
                 }
                 else if (isTexture) //текстура
                 {
@@ -84,37 +75,40 @@ namespace MultilevelLibrary.Drawing
                     }
                     else if (Utils.IsSafetyRoom(itemFloor))
                         DrawSafetyRoom(itemFloorDirNumber, point);
-                    else if (Utils.IsSaveRoom(itemFloor))
-                        DrawSaveRoom(itemFloorDirNumber, point);
-                    else if (Utils.IsRadarRoom(itemFloor))
-                        DrawRadarRoom(itemFloorDirNumber, point);
                     else if (Utils.IsLift(itemFloor))
                         DrawLift(itemFloorDirNumber, point);
                     else if (Utils.IsRoof(itemFloor))
                         DrawRoof(itemFloorDirNumber, point);
-                    else if (Utils.IsCamera(itemFloor))
-                        DrawCamera(itemFloorDirNumber, point);
                     else if (Utils.IsWindow(itemFloor))
                         DrawWindow(itemFloorDirNumber, point);
                     else if (Utils.IsFireTube(itemFloor))
                         DrawFireTube(itemFloorDirNumber, point);
                 }
 
-                //нарисовать энергетик в комнате
-                if (Utils.IsAnyRoom(itemFloor) && itemKey == Utils.IndexBottle)
+                //нарисовать цветные замок и ключ в комнате
+                if (Utils.IsSafetyRoom(itemFloor) || Utils.IsRoof(itemFloor))
                 {
-                    if (Config.ShiftBottleTexture)
-                        point = ShiftPoint(point, Vector3P.FromNumber(itemFloorDirNumber) * 17);
-                    DrawBottleInRoom(point);
+                    if (Utils.IsRoof(itemFloor))
+                        itemFloorDirNumber = (itemFloorDirNumber / 2 + 2) % 4;
+
+                    Vector3P offsetDirection = Vector3P.FromNumber(itemFloorDirNumber);
+
+                    int keyColorIndex = itemKey % 100 - 1;
+                    int lockColorIndex = itemKey / 100 - 1;
+                    if (keyColorIndex >= 0)
+                        DrawKeyColorInRoom(itemFloorDirNumber, keyColorIndex,
+                            Config.ShiftLocksKeysColor ? ShiftPoint(point, offsetDirection * 3) : point);
+                    if (lockColorIndex >= 0)
+                        DrawLockColorInRoom(itemFloorDirNumber, lockColorIndex,
+                            Config.ShiftLocksKeysColor ? ShiftPoint(point, offsetDirection * (Utils.IsRoof(itemFloor) ? 23 : 30)) : point);
                 }
             }
 
             //ключевой слой
-            if (itemKey != Utils.IndexAir && itemKey != Utils.IndexBottle)
+            if (itemKey == Utils.IndexPlayer)
             {
-                DrawKey(itemKey, point);
-                if (itemKey == Utils.IndexPlayer)
-                    DrawDoorEntrance(maze.PlayerPosition.Direction.Number, point);
+                DrawPlayer(point);
+                DrawDoorEntrance(maze.PlayerPosition.Direction.Number, point);
             }
 
             //слой украшений
@@ -141,19 +135,16 @@ namespace MultilevelLibrary.Drawing
         protected abstract void DrawContour(int colorIndex); //нарисовать прямоугольник по контуру
         protected abstract void FillRectangle(int colorIndex, DrawingRectangle rect); //залить прямоугольник
         protected abstract void DrawArrow(int dirNumber, DrawingPoint point); //нарисовать стрелку
-        protected abstract void DrawArrowCorner(int dirNumber, DrawingPoint point); //нарисовать угловую стрелку
         protected abstract void DrawStairs(int dirNumber, DrawingPoint point); //нарисовать лестницу
         protected abstract void DrawSafetyRoom(int dirNumber, DrawingPoint point); //нарисовать безопасную комнату
-        protected abstract void DrawSaveRoom(int dirNumber, DrawingPoint point); //нарисовать сохраняющую комнату
-        protected abstract void DrawRadarRoom(int dirNumber, DrawingPoint point); //нарисовать радарную комнату
         protected abstract void DrawLift(int dirNumber, DrawingPoint point); //нарисовать лифт
         protected abstract void DrawRoof(int dirNumber, DrawingPoint point); //нарисовать выходную будку
-        protected abstract void DrawCamera(int dirNumber, DrawingPoint point); //нарисовать камеру
         protected abstract void DrawWindow(int dirNumber, DrawingPoint point); //нарисовать окно
         protected abstract void DrawFireTube(int dirNumber, DrawingPoint point); //нарисовать пожарный шест
-        protected abstract void DrawBottleInRoom(DrawingPoint point); //нарисовать энергетик в комнате
+        protected abstract void DrawLockColorInRoom(int dirNumber, int colorIndex, DrawingPoint point); //нарисовать цветной замок в комнате
+        protected abstract void DrawKeyColorInRoom(int dirNumber, int colorIndex, DrawingPoint point); //нарисовать цветной ключ в комнате
         protected abstract void DrawHole(DrawingPoint point); //нарисовать дырку в полу
-        protected abstract void DrawKey(int itemKey, DrawingPoint point); //нарисовать ключевой объект
+        protected abstract void DrawPlayer(DrawingPoint point); //нарисовать игрока
         protected abstract void DrawDoorEntrance(int dirNumber, DrawingPoint point); //нарисовать входную дверь
         protected abstract void DrawDecoration(int decorIndex, DrawingRectangle rect); //нарисовать украшение
     }

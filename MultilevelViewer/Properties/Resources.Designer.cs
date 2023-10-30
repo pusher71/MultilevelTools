@@ -63,86 +63,6 @@ namespace MultilevelViewer.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap arrow20_corner_down_ccw {
-            get {
-                object obj = ResourceManager.GetObject("arrow20_corner_down_ccw", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap arrow20_corner_down_cw {
-            get {
-                object obj = ResourceManager.GetObject("arrow20_corner_down_cw", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap arrow20_corner_left_ccw {
-            get {
-                object obj = ResourceManager.GetObject("arrow20_corner_left_ccw", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap arrow20_corner_left_cw {
-            get {
-                object obj = ResourceManager.GetObject("arrow20_corner_left_cw", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap arrow20_corner_right_ccw {
-            get {
-                object obj = ResourceManager.GetObject("arrow20_corner_right_ccw", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap arrow20_corner_right_cw {
-            get {
-                object obj = ResourceManager.GetObject("arrow20_corner_right_cw", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap arrow20_corner_up_ccw {
-            get {
-                object obj = ResourceManager.GetObject("arrow20_corner_up_ccw", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap arrow20_corner_up_cw {
-            get {
-                object obj = ResourceManager.GetObject("arrow20_corner_up_cw", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap arrow20_down {
             get {
                 object obj = ResourceManager.GetObject("arrow20_down", resourceCulture);
@@ -176,106 +96,6 @@ namespace MultilevelViewer.Properties {
         internal static System.Drawing.Bitmap arrow20_up {
             get {
                 object obj = ResourceManager.GetObject("arrow20_up", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap bottle20 {
-            get {
-                object obj = ResourceManager.GetObject("bottle20", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap bottle50 {
-            get {
-                object obj = ResourceManager.GetObject("bottle50", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap camera20_down {
-            get {
-                object obj = ResourceManager.GetObject("camera20_down", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap camera20_left {
-            get {
-                object obj = ResourceManager.GetObject("camera20_left", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap camera20_right {
-            get {
-                object obj = ResourceManager.GetObject("camera20_right", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap camera20_up {
-            get {
-                object obj = ResourceManager.GetObject("camera20_up", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap camera50_down {
-            get {
-                object obj = ResourceManager.GetObject("camera50_down", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap camera50_left {
-            get {
-                object obj = ResourceManager.GetObject("camera50_left", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap camera50_right {
-            get {
-                object obj = ResourceManager.GetObject("camera50_right", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap camera50_up {
-            get {
-                object obj = ResourceManager.GetObject("camera50_up", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -453,9 +273,9 @@ namespace MultilevelViewer.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap key20_enemy {
+        internal static System.Drawing.Bitmap key_color20 {
             get {
-                object obj = ResourceManager.GetObject("key20_enemy", resourceCulture);
+                object obj = ResourceManager.GetObject("key_color20", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -463,9 +283,9 @@ namespace MultilevelViewer.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap key20_key {
+        internal static System.Drawing.Bitmap key_color50_h {
             get {
-                object obj = ResourceManager.GetObject("key20_key", resourceCulture);
+                object obj = ResourceManager.GetObject("key_color50_h", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -473,39 +293,9 @@ namespace MultilevelViewer.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap key20_player {
+        internal static System.Drawing.Bitmap key_color50_v {
             get {
-                object obj = ResourceManager.GetObject("key20_player", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap key50_enemy {
-            get {
-                object obj = ResourceManager.GetObject("key50_enemy", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap key50_key {
-            get {
-                object obj = ResourceManager.GetObject("key50_key", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap key50_player {
-            get {
-                object obj = ResourceManager.GetObject("key50_player", resourceCulture);
+                object obj = ResourceManager.GetObject("key_color50_v", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -553,9 +343,9 @@ namespace MultilevelViewer.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap radar_room50_down {
+        internal static System.Drawing.Bitmap lock_color20 {
             get {
-                object obj = ResourceManager.GetObject("radar_room50_down", resourceCulture);
+                object obj = ResourceManager.GetObject("lock_color20", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -563,9 +353,9 @@ namespace MultilevelViewer.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap radar_room50_left {
+        internal static System.Drawing.Bitmap lock_color50_h {
             get {
-                object obj = ResourceManager.GetObject("radar_room50_left", resourceCulture);
+                object obj = ResourceManager.GetObject("lock_color50_h", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -573,9 +363,9 @@ namespace MultilevelViewer.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap radar_room50_right {
+        internal static System.Drawing.Bitmap lock_color50_v {
             get {
-                object obj = ResourceManager.GetObject("radar_room50_right", resourceCulture);
+                object obj = ResourceManager.GetObject("lock_color50_v", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -583,9 +373,19 @@ namespace MultilevelViewer.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap radar_room50_up {
+        internal static System.Drawing.Bitmap player20 {
             get {
-                object obj = ResourceManager.GetObject("radar_room50_up", resourceCulture);
+                object obj = ResourceManager.GetObject("player20", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap player50 {
+            get {
+                object obj = ResourceManager.GetObject("player50", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -706,46 +506,6 @@ namespace MultilevelViewer.Properties {
         internal static System.Drawing.Bitmap safety_room50_up {
             get {
                 object obj = ResourceManager.GetObject("safety_room50_up", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap save_room50_down {
-            get {
-                object obj = ResourceManager.GetObject("save_room50_down", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap save_room50_left {
-            get {
-                object obj = ResourceManager.GetObject("save_room50_left", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap save_room50_right {
-            get {
-                object obj = ResourceManager.GetObject("save_room50_right", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap save_room50_up {
-            get {
-                object obj = ResourceManager.GetObject("save_room50_up", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

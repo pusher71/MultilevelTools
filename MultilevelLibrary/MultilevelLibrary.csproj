@@ -43,20 +43,7 @@
   <ItemGroup>
     <Compile Include="Constants.cs" />
     <Compile Include="EmptyCondition.cs" />
-    <Compile Include="Generation\CyclesFinder.cs" />
-    <Compile Include="Generation\Model\Cycle.cs" />
-    <Compile Include="Generation\Model\GraphNodeLink.cs" />
-    <Compile Include="Generation\Model\PathPart.cs" />
-    <Compile Include="Generation\Model\IntensityMap.cs" />
-    <Compile Include="Generation\Model\TrapsZone.cs" />
-    <Compile Include="Generation\PathPartsFinder.cs" />
-    <Compile Include="Generation\TrapsZonesFinder.cs" />
-    <Compile Include="Generation\SubPathGroupsFinder.cs" />
-    <Compile Include="Generation\Model\SubPath.cs" />
-    <Compile Include="Generation\Model\SubPathGroup.cs" />
-    <Compile Include="Generation\TrapsFinder.cs" />
     <Compile Include="GeneratorMain.cs" />
-    <Compile Include="Generation\Model\Ray.cs" />
     <Compile Include="RectangleType.cs" />
     <Compile Include="MazeMap.cs" />
     <Compile Include="Decorator.cs" />
@@ -85,8 +72,6 @@
     <Compile Include="r.cs" />
     <Compile Include="LogicPos.cs" />
     <Compile Include="CliqueController.cs" />
-    <Compile Include="Generation\Model\AreaInfo.cs" />
-    <Compile Include="Generation\VisibilityProcessor.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">

@@ -17,12 +17,7 @@ namespace MultilevelLibrary
         public MazeMap<int> DecorMap { get; private set; } //карта украшений
 
         public LogicPos PlayerPosition { get; set; } //позиция игрока
-        public LogicPos EnemyPosition { get; set; } //позиция врага
         public int KeyCount { get; set; } //количество ключей
-        public LogicPos[] KeyPositions { get; set; } //позиции ключей
-        public Vector3P[] KeyOffsets { get; set; } //сдвиги ключей
-        public int[] KeyRotations { get; set; } //повороты ключей
-        public int BottlesCount { get; set; } //количество энергетиков
 
         public MultilevelMaze(int width, int height, int count)
         {
@@ -43,19 +38,8 @@ namespace MultilevelLibrary
                 KeyMap = KeyMap.Clone(),
                 DecorMap = DecorMap.Clone(),
                 PlayerPosition = PlayerPosition,
-                EnemyPosition = EnemyPosition,
-                KeyCount = KeyCount,
-                KeyPositions = new LogicPos[KeyCount],
-                KeyOffsets = new Vector3P[KeyCount],
-                KeyRotations = new int[KeyCount],
-                BottlesCount = BottlesCount
+                KeyCount = KeyCount
             };
-            for (int i = 0; i < KeyCount; i++)
-            {
-                copy.KeyPositions[i] = KeyPositions[i];
-                copy.KeyOffsets[i] = KeyOffsets[i];
-                copy.KeyRotations[i] = KeyRotations[i];
-            }
             return copy;
         }
 
@@ -197,13 +181,6 @@ namespace MultilevelLibrary
 
         //данная позиция является одиночной колонной
         internal bool IsSinglePillar(Vector3P position) => !IsAboveWall(position, out _);
-
-        //место годится для расположения врага
-        internal bool IsEnemyCanPlaced(Vector3P position)
-        {
-            int item = Map.Get(position);
-            return item == Utils.IndexAir || Utils.IsCamera(item) || Utils.IsStairs(item) || item == Utils.IndexStairsP;
-        }
 
         //может ли кто-либо пойти по данному направлению
         internal bool IsEverybodyCanGo(Vector3P position, Vector3P direction) =>

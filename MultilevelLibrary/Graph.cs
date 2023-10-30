@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using PrimitiveData3D;
+﻿using PrimitiveData3D;
 
 namespace MultilevelLibrary
 {
@@ -25,7 +23,7 @@ namespace MultilevelLibrary
             for (int z = 0; z < count; z++)
                 for (int y = 0; y < height; y++)
                     for (int x = 0; x < width; x++)
-                        nodes[x, y, z] = new GraphNode(new Vector3P(x, y, z), maze.IsEnemyCanPlaced(new Vector3P(x, y, z) * 2 + 1));
+                        nodes[x, y, z] = new GraphNode(new Vector3P(x, y, z));
 
             //связать вершины между собой и определить возможные направления
             for (int z = 0; z < count; z++)
@@ -37,7 +35,6 @@ namespace MultilevelLibrary
                         int item = maze.Map.Get(position * 2 + 1);
 
                         bool onStairsAngle = Utils.IsStairs(item); //ведущий угол ступенек
-                        currentNode.EnemyHeightAdjustment = onStairsAngle ? 1.5f : 0; //определить прижатие к потолку над ступеньками
                         if (onStairsAngle)
                         {
                             Vector3P stairsDir = Vector3P.FromNumber(item - Utils.IndexStairs);
@@ -49,13 +46,6 @@ namespace MultilevelLibrary
                             //вершина сверху ступенек
                             GraphNode upperNode = currentNode.GetNeighbour(Vector3P.Up);
                             AddDirection(upperNode, Vector3P.Down);
-
-                            //вершина внутри ступенек (пассивный блок)
-                            GraphNode sideNode = GetGraphNode(position + stairsDir);
-                            AddDirection(sideNode, Vector3P.Up);
-                            sideNode.SetDirectionByType(GraphDirectionType.Bottom, stairsDirOpposite);
-                            sideNode.SetDirectionByType(GraphDirectionType.Top, Vector3P.Up);
-                            sideNode.SetDirectionByType(GraphDirectionType.Call, Vector3P.Up);
                         }
                         else
                         {
@@ -87,9 +77,6 @@ namespace MultilevelLibrary
                         if (maze.Map.Get(position * 2 + 1 + Vector3P.Down) == Utils.IndexHole)
                             AddDirection(currentNode, Vector3P.Down);
                     }
-
-            Polarize(Vector3P.Zero, GraphDirectionType.Bottom, false); //поляризовать вниз
-            Polarize(PreRoofPosition, GraphDirectionType.Top, false); //поляризовать вверх
         }
 
         //получить вершину графа по Vector3P позиции
@@ -99,69 +86,5 @@ namespace MultilevelLibrary
         //добавить направление к вершине графа
         private void AddDirection(GraphNode node, Vector3P direction) =>
             node.AddDirectionAndNeighbour(direction, GetGraphNode(node.Position + direction));
-
-        //поляризовать
-        private static readonly Queue<GraphNode> queueNodes = new Queue<GraphNode>(); //очередь посещаемых вершин
-        private static readonly Queue<Vector3P> queueBackDirs = new Queue<Vector3P>(); //очередь задних направлений
-        public void Polarize(Vector3P finishPosition, GraphDirectionType dt, bool threeFloors)
-        {
-            GraphNode finishNode = GetGraphNode(finishPosition);
-            int startZ = finishPosition.Z;
-
-            queueNodes.Clear();
-            queueBackDirs.Clear();
-            queueNodes.Enqueue(finishNode);
-            queueBackDirs.Enqueue(Vector3P.Zero);
-
-            //пока очередь не закончилась
-            while (queueNodes.Count > 0)
-            {
-                //вынуть из очереди вершину и её ROOT-направление
-                GraphNode node = queueNodes.Dequeue();
-                Vector3P backDir = queueBackDirs.Dequeue();
-
-                //если требуемое направление не задано
-                if (!node.IsSpecifiedByType(dt))
-                {
-                    //для каждого направления
-                    foreach (Vector3P currentDir in node.GetDirectionsForEnemy())
-                    {
-                        if (currentDir == backDir) //если направление ведёт назад (к цели)
-                            node.SetDirectionByType(dt, currentDir); //пометить его как направление следования
-
-                        //добавить в очередь данные для обработки
-                        if (!threeFloors || Math.Abs(node.Position.Z + currentDir.Z - startZ) <= 1)
-                        {
-                            queueNodes.Enqueue(node.GetNeighbour(currentDir));
-                            queueBackDirs.Enqueue(-currentDir);
-                        }
-                    }
-
-                    if (!node.IsSpecifiedByType(dt) && dt == GraphDirectionType.Call) //если направление так и не удалось задать в режиме вызова
-                        node.IsCallFinish = true; //пометить финишную точку
-                }
-            }
-        }
-
-        //нейтрализовать
-        public void Unpolarize(GraphDirectionType dt)
-        {
-            for (int z = 0; z < count; z++)
-                for (int y = 0; y < height; y++)
-                    for (int x = 0; x < width; x++)
-                    {
-                        nodes[x, y, z].SetDirectionByType(dt, Vector3P.Zero);
-                        nodes[x, y, z].IsCallFinish = false;
-                    }
-        }
-
-        //сбросить посещаемость
-        public void ResetVisited()
-        {
-            for (int z = 0; z < count; z++)
-                for (int y = 0; y < height; y++)
-                    for (int x = 0; x < width; x++)
-                        nodes[x, y, z].WasVisited = false;
-        }
     }
 }

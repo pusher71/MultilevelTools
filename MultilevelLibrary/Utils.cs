@@ -11,19 +11,13 @@ namespace MultilevelLibrary
         public const int IndexHole = 3; //дырка в полу
         public const int IndexStairs = 20; //отсчёт ступенек
         public const int IndexSafetyRoom = 30; //отсчёт безопасных комнат
-        public const int IndexRadarRoom = 40; //отсчёт радарных комнат
-        public const int IndexSaveRoom = 50; //отсчёт сохраняющих комнат
         public const int IndexLift = 60; //отсчёт лифтов
         public const int IndexRoof = 70; //отсчёт выходных будок
-        public const int IndexCamera = 80; //отсчёт камер
         public const int IndexWindow = 90; //отсчёт окон
         public const int IndexFireTube = 100; //отсчёт пожарных шестов
 
         //индексы ключевой карты
-        public const int IndexPlayer = 1; //игрок
-        public const int IndexEnemy = 2; //враг
-        public const int IndexKey = 3; //ключ
-        public const int IndexBottle = 4; //энергетик
+        public const int IndexPlayer = -1; //игрок
 
         //элемент является ведущим углом лестницы
         public static bool IsStairs(int item) => item >= IndexStairs && item < IndexStairs + 4;
@@ -31,32 +25,17 @@ namespace MultilevelLibrary
         //элемент является безопасной комнатой
         public static bool IsSafetyRoom(int item) => item >= IndexSafetyRoom && item < IndexSafetyRoom + 4;
 
-        //элемент является радарной комнатой
-        public static bool IsRadarRoom(int item) => item >= IndexRadarRoom && item < IndexRadarRoom + 4;
-
-        //элемент является сохраняющей комнатой
-        public static bool IsSaveRoom(int item) => item >= IndexSaveRoom && item < IndexSaveRoom + 4;
-
         //элемент является лифтом
         public static bool IsLift(int item) => item >= IndexLift && item < IndexLift + 4;
 
         //элемент является выходной будкой
         public static bool IsRoof(int item) => item >= IndexRoof && item < IndexRoof + 8;
 
-        //элемент является камерой
-        public static bool IsCamera(int item) => item >= IndexCamera && item < IndexCamera + 4;
-
         //элемент является окном
         public static bool IsWindow(int item) => item >= IndexWindow && item < IndexWindow + 4;
 
         //элемент является пожарным шестов
         public static bool IsFireTube(int item) => item >= IndexFireTube && item < IndexFireTube + 4;
-
-        //элемент является любой комнатой
-        public static bool IsAnyRoom(int item) => IsSafetyRoom(item) || IsSaveRoom(item) || IsRadarRoom(item);
-
-        //получить максимальный этаж для радарных комнат
-        public static int GetRadarFloorMax(int count, bool liftExists) => (liftExists ? count : (int)Math.Ceiling(count * 2f / 3f)) - 1;
 
         //получить стили слоёв по вертикальным размерам помещения
         public static int[] GetLayerStyles(MultilevelMaze maze, int seed, bool layersShuffled, bool layers9)

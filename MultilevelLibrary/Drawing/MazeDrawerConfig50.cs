@@ -12,12 +12,11 @@
             UpperDistance = 50;
             DrawRoofContour = true;
             DrawOverlaps = false;
-            ShiftBottleTexture = true;
+            ShiftLocksKeysColor = true;
         }
 
         public override bool IsSolidColor(int item) => item < Utils.IndexStairs && item != Utils.IndexStairsP;
         public override bool IsTexture(int item, bool aboveStairs) => (!IsSolidColor(item) && item != Utils.IndexStairsP) || aboveStairs;
         public override bool IsArrow(int item) => false;
-        public override bool IsArrowCorner(int item) => false;
     }
 }

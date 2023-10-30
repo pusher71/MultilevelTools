@@ -13,16 +13,14 @@
         public int UpperDistance { get; set; } //расстояние между картинкой и верхом сетки (для текста)
         public bool DrawRoofContour { get; set; } //рисовать контур этажа-крыши
         public bool DrawOverlaps { get; set; } //рисовать межэтажные перекрытия
-        public bool ShiftBottleTexture { get; set; } //смещать текстуру энергетика
+        public bool ShiftLocksKeysColor { get; set; } //смещать цветные замки и ключи
 
         //настраиваемые параметры
-        public bool DrawSafetyRoomsType { get; set; } //отображать тип безопасных комнат
         public bool DrawKeyLayer { get; set; } //рисовать ключевые объекты
         public bool DrawDecorations { get; set; } //рисовать украшения
 
         public abstract bool IsSolidColor(int item); //элемент является сплошным цветом
         public abstract bool IsTexture(int item, bool aboveStairs); //элемент является текстурой
         public abstract bool IsArrow(int item); //элемент является стрелочным ведущим углом
-        public abstract bool IsArrowCorner(int item); //элемент является угловым стрелочным ведущим углом
     }
 }

@@ -118,30 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="arrow20_corner_down_ccw" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\arrow20_corner_down_ccw.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="arrow20_corner_down_cw" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\arrow20_corner_down_cw.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="arrow20_corner_left_ccw" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\arrow20_corner_left_ccw.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="arrow20_corner_left_cw" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\arrow20_corner_left_cw.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="arrow20_corner_right_ccw" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\arrow20_corner_right_ccw.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="arrow20_corner_right_cw" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\arrow20_corner_right_cw.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="arrow20_corner_up_ccw" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\arrow20_corner_up_ccw.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="arrow20_corner_up_cw" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\arrow20_corner_up_cw.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="arrow20_down" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\arrow20_down.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -153,36 +129,6 @@
   </data>
   <data name="arrow20_up" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\arrow20_up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="bottle20" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bottle20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="bottle50" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bottle50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="camera20_down" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\camera20_down.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="camera20_left" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\camera20_left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="camera20_right" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\camera20_right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="camera20_up" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\camera20_up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="camera50_down" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\camera50_down.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="camera50_left" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\camera50_left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="camera50_right" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\camera50_right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="camera50_up" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\camera50_up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="digit0" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\digit0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -235,23 +181,14 @@
   <data name="hole50" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\hole50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="key20_enemy" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\key20_enemy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="key_color20" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\key_color20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="key20_key" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\key20_key.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="key_color50_h" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\key_color50_h.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="key20_player" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\key20_player.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="key50_enemy" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\key50_enemy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="key50_key" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\key50_key.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="key50_player" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\key50_player.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="key_color50_v" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\key_color50_v.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="lift50_down" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\lift50_down.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -265,17 +202,20 @@
   <data name="lift50_up" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\lift50_up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="radar_room50_down" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\radar_room50_down.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="lock_color20" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lock_color20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="radar_room50_left" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\radar_room50_left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="lock_color50_h" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lock_color50_h.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="radar_room50_right" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\radar_room50_right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="lock_color50_v" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lock_color50_v.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="radar_room50_up" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\radar_room50_up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="player20" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\player20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="player50" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\player50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="roof50_down_ccw" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\roof50_down_ccw.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -312,18 +252,6 @@
   </data>
   <data name="safety_room50_up" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\safety_room50_up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="save_room50_down" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\save_room50_down.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="save_room50_left" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\save_room50_left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="save_room50_right" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\save_room50_right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="save_room50_up" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\save_room50_up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="stairs50_down" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\stairs50_down.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

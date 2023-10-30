@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using MultilevelLibrary.Generation;
-using MultilevelLibrary.Generation.Model;
 using PrimitiveData3D;
 
 namespace MultilevelLibrary
@@ -14,15 +11,14 @@ namespace MultilevelLibrary
 
         //сгенерировать помещения с лифтом и лестницами
         public void Generate(MultilevelMaze maze, int seed,
-            int safetyCount, int savePeriod, int radarCount, int stairsCount, int deleteWalls,
-            int liftPredel, int preferenceKeyCount, int preferenceBottlesCount, int preferenceCamerasCount, bool enableSafety,
-            bool layersShuffled, bool layers9, bool holesEnabled, bool camerasEnabled)
+            int stairsCount, int deleteWalls,
+            int liftPredel, int keyCount,
+            bool layersShuffled, bool layers9, bool holesEnabled)
         {
             this.maze = maze;
 
             maze.SetRectangle(Vector3P.Zero, new Vector3P(maze.Width, maze.Height, maze.CountInside) * 2, Utils.IndexWall, RectangleType.FILL); //застроить стенами
             CliqueController.Init(maze); //проинициализировать контроллер клики
-            VisibilityProcessor.Init(maze); //проинициализировать вычислитель видимости
 
             //создать список позиций для ступенек
             stairsPositions = new List<LogicPos>[maze.CountInside];
@@ -50,7 +46,6 @@ namespace MultilevelLibrary
             }
 
             //поставить лифт
-            LogicPos liftLogicPos = new LogicPos();
             if (liftPredel > 0)
             {
                 //определить параметры лифта
@@ -62,7 +57,7 @@ namespace MultilevelLibrary
                 int maxY = liftDirNumber == 0 ? maze.Height - maze.Height / 2 : maze.Height;
                 Vector3P liftPosition = new Vector3P(r.Next(minX, maxX), r.Next(minY, maxY), 0) * 2 + 1;
                 Vector3P liftDirection = Vector3P.FromNumber(liftDirNumber);
-                liftLogicPos = new LogicPos(liftPosition, liftDirection);
+                LogicPos liftLogicPos = new LogicPos(liftPosition, liftDirection);
 
                 //пометить лифт на этажах
                 SetLift(liftLogicPos, liftPredel * 2);
@@ -112,137 +107,31 @@ namespace MultilevelLibrary
             for (int i = 0; i < maze.CountInside; i++)
                 GenerateMaze(i * 2 + 1, deleteWalls);
 
-            Graph graph = new Graph(maze);
-            IntensityMap safetyIntensityMap = new IntensityMap(maze);
-
-            //распространить интенсивность безопасности от лифта
-            if (liftPredel > 0)
-            {
-                Vector3P liftPosition = liftLogicPos.Position;
-                for (int i = 0; i < liftPredel; i++)
-                {
-                    GraphNode node = graph.GetGraphNode(liftPosition / 2);
-                    safetyIntensityMap.AddIntensity(node, Constants.SAFETY_INTENSITY);
-                    liftPosition += Vector3P.Up * 2;
-                }
-            }
-
-            List<TrapsZone> trapsZones = null;
-            List<LogicPos>[] trapsByFloor = null;
-            if (enableSafety)
-            {
-                //пометить непросматриваемые циклы как безопасные позиции
-                CyclesFinder.MarkSafetyCycles(graph);
-
-                //получить части путей
-                List<PathPart> pathParts = PathPartsFinder.GetPathParts(graph);
-
-                //получить зоны ловушек
-                trapsZones = TrapsZonesFinder.GetTrapsZones(pathParts);
-
-                //получить позиции ловушек
-                r.Init(seed);
-                trapsByFloor = TrapsFinder.MarkTraps(maze, graph, trapsZones);
-            }
-
             //найти доступные позиции для безопасных комнат
             r.Init(seed);
-            List<LogicPos>[] deadendsByFloor = new List<LogicPos>[maze.CountInside]; //список тупиков по этажам
-            List<LogicPos>[] roomPositionsByFloor = new List<LogicPos>[maze.CountInside]; //список позиций комнат по этажам
-            List<LogicPos> roomPositionsRadar = new List<LogicPos>(); //список позиций радарных комнат
-            List<LogicPos> roomPositionsUsed = new List<LogicPos>(); //список использованных позиций комнат
-            for (int i = 0; i < maze.CountInside; i++)
-            {
-                roomPositionsByFloor[i] = new List<LogicPos>();
+            List<LogicPos> roomPositions = maze.GetEmptyPositions(EmptyCondition.DEADEND, true);
+            if (roomPositions.Count < keyCount)
+                throw new GenerateException("Ошибка. Не хватает комнат для ключей.");
+            maze.KeyCount = keyCount;
 
-                //получить тупики с этажа
-                deadendsByFloor[i] = maze.GetEmptyPositions(EmptyCondition.DEADEND, i, true);
-
-                //добавить обязательные позиции комнат
-                if (enableSafety)
-                    for (int j = 0; j < trapsByFloor[i].Count; j++)
-                    {
-                        LogicPos room = trapsByFloor[i][j];
-                        roomPositionsByFloor[i].Add(room);
-                        deadendsByFloor[i].Remove(room);
-
-                        //распространить интенсивность безопасности от комнаты
-                        safetyIntensityMap.AddIntensity(graph.GetGraphNode(room.Position / 2), Constants.SAFETY_INTENSITY);
-                    }
-            }
-
-            for (int i = 0; i < maze.CountInside; i++)
-            {
-                //добавить оставшиеся позиции комнат
-                int requiredRemainder = Math.Min(deadendsByFloor[i].Count, safetyCount - roomPositionsByFloor[i].Count);
-                for (int j = 0; j < requiredRemainder; j++)
-                {
-                    //отсортировать список по интенсивности безопасности
-                    deadendsByFloor[i] = deadendsByFloor[i].OrderBy(lp => safetyIntensityMap.Get(lp.Position / 2)).ToList();
-
-                    LogicPos room = deadendsByFloor[i][0];
-                    roomPositionsByFloor[i].Add(room);
-                    deadendsByFloor[i].Remove(room);
-
-                    //распространить интенсивность безопасности от комнаты
-                    safetyIntensityMap.AddIntensity(graph.GetGraphNode(room.Position / 2), Constants.SAFETY_INTENSITY);
-                }
-
-                //выбрать позиции для радарных комнат
-                if (i <= Utils.GetRadarFloorMax(maze.CountInside, liftPredel > 0))
-                    roomPositionsRadar.AddRange(roomPositionsByFloor[i]);
-            }
-
-            //расставить радарные комнаты
-            Shuffler<LogicPos>.ShuffleList(roomPositionsRadar);
-            for (int i = 0; i < Math.Min(roomPositionsRadar.Count, radarCount); i++)
-            {
-                LogicPos room = roomPositionsRadar[i];
-                roomPositionsByFloor[room.Position.Z / 2].Remove(room);
-                roomPositionsUsed.Add(room);
-                maze.Map.Set(room.Position, room.Direction.Number + Utils.IndexRadarRoom);
-            }
-
-            //расставить сохраняющие комнаты
-            if (savePeriod > 0)
-            {
-                int saveCount = maze.CountInside / savePeriod; //предпочитаемое количество сохраняющих комнат
-                for (int i = 0; i < saveCount; i++)
-                {
-                    List<LogicPos> saves = new List<LogicPos>(); //список позиций в данном "трёхстишии"
-                    for (int j = 0; j < savePeriod; j++)
-                        if (maze.CountInside == 1 || i != 0 || j != 0)
-                            saves.AddRange(roomPositionsByFloor[i * savePeriod + j]);
-
-                    //нашлась хотя бы одна позиция в "трёхстишии"
-                    if (saves.Count > 0)
-                    {
-                        LogicPos room = saves[r.Next(saves.Count)];
-                        roomPositionsByFloor[room.Position.Z / 2].Remove(room);
-                        roomPositionsUsed.Add(room);
-                        maze.Map.Set(room.Position, room.Direction.Number + Utils.IndexSaveRoom);
-                    }
-                }
-            }
-
-            //расставить простые комнаты
-            for (int i = 0; i < maze.CountInside; i++)
-                for (int j = 0; j < roomPositionsByFloor[i].Count; j++)
-                {
-                    LogicPos room = roomPositionsByFloor[i][j];
-                    roomPositionsUsed.Add(room);
-                    maze.Map.Set(room.Position, room.Direction.Number + Utils.IndexSafetyRoom);
-                }
-
-            //расставить энергетики
+            //определить порядок цветов
             r.Init(seed);
-            maze.BottlesCount = Math.Min(preferenceBottlesCount, roomPositionsUsed.Count);
-            Shuffler<LogicPos>.ShuffleList(roomPositionsUsed);
-            for (int i = 0; i < maze.BottlesCount; i++)
+            List<int> colorIndexesOrder = new List<int>();
+            for (int i = 1; i <= maze.KeyCount; i++)
+                colorIndexesOrder.Add(i);
+            Shuffler<int>.ShuffleList(colorIndexesOrder);
+            colorIndexesOrder.Insert(0, 0);
+
+            //расставить безопасные комнаты с цветными замками и ключами
+            for (int i = 0; i < maze.KeyCount; i++)
             {
-                LogicPos bottlePos = roomPositionsUsed[i];
-                maze.KeyMap.Set(bottlePos.Position / 2, Utils.IndexBottle);
+                LogicPos room = roomPositions[i];
+                maze.Map.Set(room.Position, room.Direction.Number + Utils.IndexSafetyRoom);
+                maze.KeyMap.Set(room.Position / 2, colorIndexesOrder[i] * 100 + colorIndexesOrder[i + 1]);
             }
+
+            //поставить цветной замок в выходную будку
+            maze.KeyMap.Set(roofPosition / 2, colorIndexesOrder[maze.KeyCount] * 100);
 
             //задать позицию игрока
             r.Init(seed);
@@ -251,86 +140,6 @@ namespace MultilevelLibrary
                 throw new GenerateException("Ошибка. Не удалось задать позицию игрока.");
             maze.PlayerPosition = playerPositions[r.Next(playerPositions.Count)];
             maze.KeyMap.Set(maze.PlayerPosition.Position / 2, Utils.IndexPlayer);
-
-            //распространить интенсивность от игрока
-            IntensityMap playerIntensityMap = new IntensityMap(maze);
-            playerIntensityMap.AddIntensity(graph.GetGraphNode(maze.PlayerPosition.Position / 2), Constants.PLAYER_INTENSITY);
-
-            //задать позицию врага
-            r.Init(seed);
-            int enemyFloor = r.Next(Math.Min(maze.CountInside - 1, Constants.ENEMY_FLOOR_NORMAL_THRESHOLD), maze.CountInside);
-            IEnumerable<LogicPos> enemyPositions = maze.GetEmptyPositions(EmptyCondition.EMPTY, enemyFloor, true)
-                        .OrderBy(lp => playerIntensityMap.Get(lp.Position / 2));
-            if (enemyPositions.Count() == 0)
-                throw new GenerateException("Ошибка. Не удалось задать позицию врага.");
-            maze.EnemyPosition = enemyPositions.First();
-            maze.KeyMap.Set(maze.EnemyPosition.Position / 2, Utils.IndexEnemy);
-
-            if (camerasEnabled && preferenceCamerasCount > 0)
-            {
-                if (enableSafety)
-                {
-                    //пометить установленные безопасные комнаты
-                    for (int i = 0; i < roomPositionsUsed.Count; i++)
-                        graph.GetGraphNode(roomPositionsUsed[i].Position / 2).IsSafetyRoom = true;
-
-                    //создать группы подчастей путей, записывающих себя в GraphNodes (для ограничения расставления камер)
-                    SubPathGroupsFinder.CreateSubPathGroups(maze, trapsZones);
-                }
-
-                //расставить камеры
-                IntensityMap camerasIntensityMap = new IntensityMap(maze);
-                r.Init(seed);
-                for (int i = 0; i < maze.CountInside; i++)
-                    for (int j = 0; j < preferenceCamerasCount; j++)
-                    {
-                        //получить список позиций для камер
-                        IEnumerable<LogicPos> cameraPositons = maze.GetEmptyPositions(EmptyCondition.CAMERA, i, true)
-                            .Where(lp => !graph.GetGraphNode(lp.Position / 2).IsCameraProhibited)
-                            .OrderBy(lp => camerasIntensityMap.Get(lp.Position / 2));
-
-                        //завершить расставление камер на этаже, если позиций не осталось
-                        if (cameraPositons.Count() == 0)
-                            break;
-
-                        //поставить камеру
-                        LogicPos cameraPos = cameraPositons.First();
-                        maze.Map.Set(cameraPos.Position, cameraPos.Direction.Number + Utils.IndexCamera);
-
-                        //распространить интенсивность от камеры
-                        GraphNode cameraNode = graph.GetGraphNode(cameraPos.Position / 2);
-                        camerasIntensityMap.AddIntensity(cameraNode, Constants.CAMERA_INTENSITY);
-
-                        //оповестить о поставленной камере
-                        cameraNode.OnCameraPlaced();
-                    }
-            }
-
-            //расставить ключи
-            IntensityMap keysIntensityMap = new IntensityMap(maze);
-            r.Init(seed);
-            IEnumerable<LogicPos> keyPositions = maze.GetEmptyPositions(EmptyCondition.EMPTY, true); //список позиций для ключей
-            if (keyPositions.Count() == 0)
-                throw new GenerateException("Ошибка. Не удалось поставить ни один ключ.");
-            maze.KeyCount = Math.Min(preferenceKeyCount, keyPositions.Count());
-            maze.KeyPositions = new LogicPos[maze.KeyCount];
-            maze.KeyOffsets = new Vector3P[maze.KeyCount];
-            maze.KeyRotations = new int[maze.KeyCount];
-            for (int i = 0; i < maze.KeyCount; i++)
-            {
-                //отсортировать список по интенсивности ключей
-                keyPositions = keyPositions.OrderBy(lp => keysIntensityMap.Get(lp.Position / 2));
-
-                //поставить ключ
-                LogicPos keyPos = keyPositions.First();
-                maze.KeyMap.Set(keyPos.Position / 2, Utils.IndexKey);
-                maze.KeyPositions[i] = keyPos;
-                maze.KeyOffsets[i] = new Vector3P(r.Next(400) - 200, r.Next(400) - 200, 0);
-                maze.KeyRotations[i] = r.Next(360);
-
-                //распространить интенсивность от ключа
-                keysIntensityMap.AddIntensity(graph.GetGraphNode(keyPos.Position / 2), Constants.KEY_INTENSITY);
-            }
 
             //получить стили слоёв
             int[] layerStyles = Utils.GetLayerStyles(maze, seed, layersShuffled, layers9);
@@ -359,9 +168,9 @@ namespace MultilevelLibrary
                             int itemUpKey = maze.KeyMap.Get(positionUp / 2);
 
                             if (item == Utils.IndexWall &&
-                                (itemUp == Utils.IndexAir || Utils.IsCamera(itemUp)) &&
-                                (itemDown == Utils.IndexAir || Utils.IsCamera(itemDown) || itemDown == Utils.IndexStairsP) &&
-                                (itemUpKey == Utils.IndexAir || itemUpKey == Utils.IndexEnemy) &&
+                                (itemUp == Utils.IndexAir) &&
+                                (itemDown == Utils.IndexAir || itemDown == Utils.IndexStairsP) &&
+                                (itemUpKey == Utils.IndexAir) &&
                                 r.Next(Constants.HOLE_CHANCE) == 0)
                                 maze.Map.Set(position, Utils.IndexHole);
                         }
@@ -583,7 +392,7 @@ namespace MultilevelLibrary
                         Vector3P positionNeighbour = position + direction.TurnOpposite();
                         int itemNeighbour = maze.Map.Get(positionNeighbour);
                         int keyNeighbour = maze.KeyMap.Get(positionNeighbour / 2);
-                        if ((itemNeighbour == Utils.IndexAir || Utils.IsCamera(itemNeighbour)) &&
+                        if (itemNeighbour == Utils.IndexAir &&
                             keyNeighbour != Utils.IndexPlayer && r.Next(Constants.WINDOW_CHANCE) == 0)
                             maze.Map.Set(position, direction.Number + Utils.IndexWindow);
                     }

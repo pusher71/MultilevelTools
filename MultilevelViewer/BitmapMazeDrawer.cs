@@ -46,19 +46,6 @@ namespace MultilevelViewer
             Properties.Resources.arrow20_left
         };
 
-        //текстуры 20 угловых стрелок
-        private readonly Bitmap[] texturesArrowCorner20 = new Bitmap[]
-        {
-            Properties.Resources.arrow20_corner_up_ccw,
-            Properties.Resources.arrow20_corner_up_cw,
-            Properties.Resources.arrow20_corner_right_ccw,
-            Properties.Resources.arrow20_corner_right_cw,
-            Properties.Resources.arrow20_corner_down_ccw,
-            Properties.Resources.arrow20_corner_down_cw,
-            Properties.Resources.arrow20_corner_left_ccw,
-            Properties.Resources.arrow20_corner_left_cw
-        };
-
         //текстуры 50 лестниц
         private readonly Bitmap[] texturesStairs50 = new Bitmap[]
         {
@@ -75,24 +62,6 @@ namespace MultilevelViewer
             Properties.Resources.safety_room50_right,
             Properties.Resources.safety_room50_down,
             Properties.Resources.safety_room50_left
-        };
-
-        //текстуры 50 сохраняющих комнат
-        private readonly Bitmap[] texturesSaveRoom50 = new Bitmap[]
-        {
-            Properties.Resources.save_room50_up,
-            Properties.Resources.save_room50_right,
-            Properties.Resources.save_room50_down,
-            Properties.Resources.save_room50_left
-        };
-
-        //текстуры 50 радарных комнат
-        private readonly Bitmap[] texturesRadarRoom50 = new Bitmap[]
-        {
-            Properties.Resources.radar_room50_up,
-            Properties.Resources.radar_room50_right,
-            Properties.Resources.radar_room50_down,
-            Properties.Resources.radar_room50_left
         };
 
         //текстуры 50 лифтов
@@ -116,23 +85,6 @@ namespace MultilevelViewer
             Properties.Resources.roof50_left_ccw,
             Properties.Resources.roof50_left_cw
         };
-
-        //текстуры камер
-        private readonly Bitmap[] texturesCamera20 = new Bitmap[]
-        {
-            Properties.Resources.camera20_up,
-            Properties.Resources.camera20_right,
-            Properties.Resources.camera20_down,
-            Properties.Resources.camera20_left
-        };
-        private readonly Bitmap[] texturesCamera50 = new Bitmap[]
-        {
-            Properties.Resources.camera50_up,
-            Properties.Resources.camera50_right,
-            Properties.Resources.camera50_down,
-            Properties.Resources.camera50_left
-        };
-        private Bitmap[] texturesCamera;
 
         //текстуры окон
         private readonly Bitmap[] texturesWindow20 = new Bitmap[]
@@ -160,27 +112,58 @@ namespace MultilevelViewer
             Properties.Resources.fire_tube50_left
         };
 
-        //текстуры ключевых объектов
-        private readonly Bitmap[] texturesKeys20 = new Bitmap[]
-        {
-            null,
-            Properties.Resources.key20_player,
-            Properties.Resources.key20_enemy,
-            Properties.Resources.key20_key
-        };
-        private readonly Bitmap[] texturesKeys50 = new Bitmap[]
-        {
-            null,
-            Properties.Resources.key50_player,
-            Properties.Resources.key50_enemy,
-            Properties.Resources.key50_key
-        };
-        private Bitmap[] texturesKeys;
+        //текстура игрока
+        private readonly Bitmap texturePlayer20 = Properties.Resources.player20;
+        private readonly Bitmap texturePlayer50 = Properties.Resources.player50;
+        private Bitmap texturePlayer;
 
-        //текстура энергетика
-        private readonly Bitmap textureBottle20 = Properties.Resources.bottle20;
-        private readonly Bitmap textureBottle50 = Properties.Resources.bottle50;
-        private Bitmap textureBottle;
+        //цвета замков и ключей
+        private readonly Color[] keyColors = new Color[]
+        {
+            Color.Blue,
+            Color.Red,
+            Color.Yellow,
+            Color.Lime,
+            Color.Magenta,
+            Color.Orange,
+            Color.White,
+            Color.Aqua,
+            Color.FromArgb(112, 48, 160)
+        };
+
+        //текстуры цветных замков
+        private readonly Bitmap[] texturesLockColor20 = new Bitmap[]
+        {
+            Properties.Resources.lock_color20,
+            Properties.Resources.lock_color20,
+            Properties.Resources.lock_color20,
+            Properties.Resources.lock_color20
+        };
+        private readonly Bitmap[] texturesLockColor50 = new Bitmap[]
+        {
+            Properties.Resources.lock_color50_h,
+            Properties.Resources.lock_color50_v,
+            Properties.Resources.lock_color50_h,
+            Properties.Resources.lock_color50_v
+        };
+        private Bitmap[] texturesLockColor;
+
+        //текстуры цветных ключей
+        private readonly Bitmap[] texturesKeyColor20 = new Bitmap[]
+        {
+            Properties.Resources.key_color20,
+            Properties.Resources.key_color20,
+            Properties.Resources.key_color20,
+            Properties.Resources.key_color20
+        };
+        private readonly Bitmap[] texturesKeyColor50 = new Bitmap[]
+        {
+            Properties.Resources.key_color50_v,
+            Properties.Resources.key_color50_h,
+            Properties.Resources.key_color50_v,
+            Properties.Resources.key_color50_h
+        };
+        private Bitmap[] texturesKeyColor;
 
         //текстура дырки в полу
         private readonly Bitmap textureHole20 = Properties.Resources.hole20;
@@ -230,10 +213,10 @@ namespace MultilevelViewer
 
             colors = forGame ? colors50 : colors20;
             colorOverlap = forGame ? colorOverlap50 : colorOverlap20;
-            texturesCamera = forGame ? texturesCamera50 : texturesCamera20;
             texturesWindow = forGame ? texturesWindow50 : texturesWindow20;
-            texturesKeys = forGame ? texturesKeys50 : texturesKeys20;
-            textureBottle = forGame ? textureBottle50 : textureBottle20;
+            texturePlayer = forGame ? texturePlayer50 : texturePlayer20;
+            texturesLockColor = forGame ? texturesLockColor50 : texturesLockColor20;
+            texturesKeyColor = forGame ? texturesKeyColor50 : texturesKeyColor20;
             textureHole = forGame ? textureHole50 : textureHole20;
         }
 
@@ -281,6 +264,18 @@ namespace MultilevelViewer
             return floorImage;
         }
 
+        //окрасить текстуру
+        private Bitmap PaintTexture(Bitmap original, Color color)
+        {
+            Bitmap texture = new Bitmap(original);
+            for (int x = 0; x < texture.Width; x++)
+                for (int y = 0; y < texture.Height; y++)
+                    if (texture.GetPixel(x, y) == Color.FromArgb(255, 255, 255, 255))
+                        texture.SetPixel(x, y, color);
+
+            return texture;
+        }
+
         //перевести в прямоугольник System.Drawing.Rectangle
         private Rectangle ConvertToSystemDrawingRectangle(DrawingRectangle rect) =>
             new Rectangle(rect.X, rect.Y, rect.Width, rect.Height);
@@ -308,19 +303,16 @@ namespace MultilevelViewer
         protected override void FillRectangle(int colorIndex, DrawingRectangle rect) =>
             gFloorImage.FillRectangle(new SolidBrush(colors[colorIndex]), ConvertToSystemDrawingRectangle(MirrorRectangleVertical(rect)));
         protected override void DrawArrow(int dirNumber, DrawingPoint point) => DrawImage(texturesArrow20[dirNumber], point);
-        protected override void DrawArrowCorner(int dirNumber, DrawingPoint point) => DrawImage(texturesArrowCorner20[dirNumber], point);
         protected override void DrawStairs(int dirNumber, DrawingPoint point) => DrawImage(texturesStairs50[dirNumber], point);
         protected override void DrawSafetyRoom(int dirNumber, DrawingPoint point) => DrawImage(texturesSafetyRoom50[dirNumber], point);
-        protected override void DrawSaveRoom(int dirNumber, DrawingPoint point) => DrawImage(texturesSaveRoom50[dirNumber], point);
-        protected override void DrawRadarRoom(int dirNumber, DrawingPoint point) => DrawImage(texturesRadarRoom50[dirNumber], point);
         protected override void DrawLift(int dirNumber, DrawingPoint point) => DrawImage(texturesLift50[dirNumber], point);
         protected override void DrawRoof(int dirNumber, DrawingPoint point) => DrawImage(texturesRoof50[dirNumber], point);
-        protected override void DrawCamera(int dirNumber, DrawingPoint point) => DrawImage(texturesCamera[dirNumber], point);
         protected override void DrawFireTube(int dirNumber, DrawingPoint point) => DrawImage(texturesFireTube50[dirNumber], point);
         protected override void DrawWindow(int dirNumber, DrawingPoint point) => DrawImage(texturesWindow[dirNumber], point);
-        protected override void DrawBottleInRoom(DrawingPoint point) => DrawImage(textureBottle, point);
+        protected override void DrawLockColorInRoom(int dirNumber, int colorIndex, DrawingPoint point) => DrawImage(PaintTexture(texturesLockColor[dirNumber], keyColors[colorIndex]), point);
+        protected override void DrawKeyColorInRoom(int dirNumber, int colorIndex, DrawingPoint point) => DrawImage(PaintTexture(texturesKeyColor[dirNumber], keyColors[colorIndex]), point);
         protected override void DrawHole(DrawingPoint point) => DrawImage(textureHole, point);
-        protected override void DrawKey(int itemKey, DrawingPoint point) => DrawImage(texturesKeys[itemKey], point);
+        protected override void DrawPlayer(DrawingPoint point) => DrawImage(texturePlayer, point);
 
         protected override void DrawDoorEntrance(int dirNumber, DrawingPoint point)
         {
