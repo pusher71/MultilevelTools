@@ -92,15 +92,14 @@ namespace MultilevelLibrary.Drawing
                         itemFloorDirNumber = (itemFloorDirNumber / 2 + 2) % 4;
 
                     Vector3P offsetDirection = Vector3P.FromNumber(itemFloorDirNumber);
+                    DrawingPoint pointShifted = Config.ShiftLocksKeysColor ? ShiftPoint(point, offsetDirection * 3) : point;
 
                     int keyColorIndex = itemKey % 100 - 1;
                     int lockColorIndex = itemKey / 100 - 1;
                     if (keyColorIndex >= 0)
-                        DrawKeyColorInRoom(itemFloorDirNumber, keyColorIndex,
-                            Config.ShiftLocksKeysColor ? ShiftPoint(point, offsetDirection * 3) : point);
+                        DrawKeyColorInRoom(itemFloorDirNumber, keyColorIndex, pointShifted);
                     if (lockColorIndex >= 0)
-                        DrawLockColorInRoom(itemFloorDirNumber, lockColorIndex,
-                            Config.ShiftLocksKeysColor ? ShiftPoint(point, offsetDirection * (Utils.IsRoof(itemFloor) ? 23 : 30)) : point);
+                        DrawLockColorInRoom(itemFloorDirNumber, lockColorIndex, pointShifted);
                 }
             }
 
