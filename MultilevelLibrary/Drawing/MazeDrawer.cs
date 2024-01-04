@@ -68,7 +68,7 @@ namespace MultilevelLibrary.Drawing
                 {
                     int colorIndex = (Config.IsArrow(itemFloor) || Config.IsArrowCorner(itemFloor)) ? itemFloor / 10 : itemFloor;
                     FillRectangle(colorIndex, rect);
-                    if (Config.IsArrow(itemFloor))
+                    if (Config.IsArrow(itemFloor) && !Utils.IsAnyRoom(itemFloor)) //временно отключить рисование стрелок на безопасных комнатах
                         DrawArrow(itemFloorDirNumber, point);
                     else if (Config.IsArrowCorner(itemFloor))
                         DrawArrowCorner(itemFloorDirNumber, point);
