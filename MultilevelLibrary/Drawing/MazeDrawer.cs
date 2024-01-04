@@ -95,7 +95,7 @@ namespace MultilevelLibrary.Drawing
                     else if (Utils.IsCamera(itemFloor))
                         DrawCamera(itemFloorDirNumber, point);
                     else if (Utils.IsWindow(itemFloor))
-                        DrawWindow(itemFloorDirNumber, point);
+                        FillRectangle(1, rect); //DrawWindow(itemFloorDirNumber, point); //временно заливать окна чёрным цветом
                     else if (Utils.IsFireTube(itemFloor))
                         DrawFireTube(itemFloorDirNumber, point);
                 }
