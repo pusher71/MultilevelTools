@@ -176,7 +176,7 @@
             // 
             this.numericKeyCount.Location = new System.Drawing.Point(300, 201);
             this.numericKeyCount.Maximum = new decimal(new int[] {
-            9,
+            16,
             0,
             0,
             0});

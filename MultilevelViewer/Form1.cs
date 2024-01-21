@@ -165,6 +165,10 @@ namespace MultilevelViewer
         {
             Template tmpl = templates[currentTemplateIndex];
 
+            //переопределить количество ключей на 16
+            if (tmpl.KeyCount == 9 && tmpl.Count > 1)
+                tmpl.KeyCount = 16;
+
             numericWidth.Value = tmpl.Width;
             numericHeight.Value = tmpl.Height;
             numericCount.Value = tmpl.Count;
