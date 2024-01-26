@@ -13,7 +13,8 @@ namespace MultilevelLibrary
         public void Generate(MultilevelMaze maze, int seed,
             int stairsCount, int deleteWalls,
             int liftPredel, int keyCount,
-            bool layersShuffled, bool layers9, bool holesEnabled)
+            bool layersShuffled, bool layers9,
+            bool holesEnabled, bool isLiftInMeat)
         {
             this.maze = maze;
 
@@ -55,7 +56,13 @@ namespace MultilevelLibrary
                 int maxX = liftDirNumber == 1 ? maze.Width - maze.Width / 2 : maze.Width;
                 int minY = liftDirNumber == 2 ? maze.Height / 2 : 0;
                 int maxY = liftDirNumber == 0 ? maze.Height - maze.Height / 2 : maze.Height;
-                Vector3P liftPosition = new Vector3P(r.Next(minX, maxX), r.Next(minY, maxY), 0) * 2 + 1;
+                int liftX = r.Next(minX, maxX);
+                int liftY = r.Next(minY, maxY);
+                if (isLiftInMeat &&
+                    (liftX == 0 || liftX == maze.Width - 1 ||
+                    liftY == 0 || liftY == maze.Height - 1))
+                    throw new ConditionException("Лифт оказался не в мясе.");
+                Vector3P liftPosition = new Vector3P(liftX, liftY, 0) * 2 + 1;
                 Vector3P liftDirection = Vector3P.FromNumber(liftDirNumber);
                 LogicPos liftLogicPos = new LogicPos(liftPosition, liftDirection);
 

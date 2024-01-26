@@ -66,6 +66,7 @@
             this.checkBoxLayers9 = new System.Windows.Forms.CheckBox();
             this.checkBoxHolesEnabled = new System.Windows.Forms.CheckBox();
             this.checkBoxLayersShuffled = new System.Windows.Forms.CheckBox();
+            this.checkBoxIsLiftInMeat = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericSeed)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -495,6 +496,7 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.checkBoxIsLiftInMeat);
             this.groupBox5.Controls.Add(this.checkBoxLayers9);
             this.groupBox5.Controls.Add(this.checkBoxHolesEnabled);
             this.groupBox5.Controls.Add(this.checkBoxLayersShuffled);
@@ -534,6 +536,16 @@
             this.checkBoxLayersShuffled.TabIndex = 0;
             this.checkBoxLayersShuffled.Text = "Слои перемешаны";
             this.checkBoxLayersShuffled.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxIsLiftInMeat
+            // 
+            this.checkBoxIsLiftInMeat.AutoSize = true;
+            this.checkBoxIsLiftInMeat.Location = new System.Drawing.Point(6, 65);
+            this.checkBoxIsLiftInMeat.Name = "checkBoxIsLiftInMeat";
+            this.checkBoxIsLiftInMeat.Size = new System.Drawing.Size(91, 17);
+            this.checkBoxIsLiftInMeat.TabIndex = 4;
+            this.checkBoxIsLiftInMeat.Text = "Лифт в мясе";
+            this.checkBoxIsLiftInMeat.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -617,6 +629,7 @@
         private System.Windows.Forms.CheckBox checkBoxHolesEnabled;
         private System.Windows.Forms.CheckBox checkBoxLayersShuffled;
         private System.Windows.Forms.CheckBox checkBoxLayers9;
+        private System.Windows.Forms.CheckBox checkBoxIsLiftInMeat;
     }
 }
 

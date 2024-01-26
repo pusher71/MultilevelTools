@@ -1,4 +1,4 @@
-﻿namespace MultilevelViewer
+﻿namespace MultilevelLibrary
 {
     public class ConditionException : System.Exception
     {

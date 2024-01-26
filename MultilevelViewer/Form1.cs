@@ -91,7 +91,8 @@ namespace MultilevelViewer
             generator.Generate(maze, seed,
                 (int)numericStairsCount.Value, (int)numericDeleteWalls.Value,
                 (int)numericLiftPredel.Value, (int)numericKeyCount.Value,
-                checkBoxLayersShuffled.Checked, checkBoxLayers9.Checked, checkBoxHolesEnabled.Checked);
+                checkBoxLayersShuffled.Checked, checkBoxLayers9.Checked,
+                checkBoxHolesEnabled.Checked, checkBoxIsLiftInMeat.Checked);
         }
 
         //отрисовать особняк

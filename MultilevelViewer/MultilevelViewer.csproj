@@ -58,7 +58,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BitmapMazeDrawer.cs" />
-    <Compile Include="ConditionException.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
