@@ -201,6 +201,25 @@ namespace MultilevelViewer
             Properties.Resources.digit9
         };
 
+        //текстуры 20 иконок этажных стилей
+        private readonly Bitmap[] layerStyles20 = new Bitmap[]
+        {
+            Properties.Resources.layer_style_1,
+            Properties.Resources.layer_style_2,
+            Properties.Resources.layer_style_3,
+            Properties.Resources.layer_style_4,
+            Properties.Resources.layer_style_5,
+            Properties.Resources.layer_style_6,
+            Properties.Resources.layer_style_7,
+            Properties.Resources.layer_style_8,
+            Properties.Resources.layer_style_9,
+            Properties.Resources.layer_style_10,
+            Properties.Resources.layer_style_11,
+            Properties.Resources.layer_style_12,
+            Properties.Resources.layer_style_13,
+            Properties.Resources.layer_style_14
+        };
+
         private int CountX => (int)Math.Ceiling(Count / (float)CountY);  //количество столбцов этажей
         private int CountY => forGame ? 1 : (int)Math.Floor(Math.Sqrt(Count)); //количество строк этажей
         private int PeriodX => FloorImageWidth + Config.DistanceX; //период по X
@@ -227,7 +246,7 @@ namespace MultilevelViewer
             textureHole = forGame ? textureHole50 : textureHole20;
         }
 
-        public Bitmap Draw()
+        public Bitmap Draw(bool drawLayerStyles, int[] layerStyles)
         {
             image = new Bitmap(ImageWidth, ImageHeight);
             gImage = Graphics.FromImage(image);
@@ -247,6 +266,13 @@ namespace MultilevelViewer
                     textPoint.Y += 2;
                 }
                 gImage.DrawString("Floor: " + (i + 1), font, brushStrings, textPoint);
+
+                //иконка этажного стиля
+                if (drawLayerStyles && !forGame)
+                {
+                    Point layerStylePoint = new Point(i % CountX * PeriodX + FloorImageWidth - 24, i / CountX * PeriodY + 4);
+                    gImage.DrawImage(layerStyles20[layerStyles[i * 2 + 1]], layerStylePoint);
+                }
             }
             return image;
         }

@@ -67,6 +67,7 @@
             this.checkBoxHolesEnabled = new System.Windows.Forms.CheckBox();
             this.checkBoxLayersShuffled = new System.Windows.Forms.CheckBox();
             this.checkBoxIsLiftInMeat = new System.Windows.Forms.CheckBox();
+            this.checkLayerStyles = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericSeed)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -392,7 +393,7 @@
             this.checkKeys.AutoSize = true;
             this.checkKeys.Checked = true;
             this.checkKeys.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkKeys.Location = new System.Drawing.Point(138, 434);
+            this.checkKeys.Location = new System.Drawing.Point(138, 405);
             this.checkKeys.Name = "checkKeys";
             this.checkKeys.Size = new System.Drawing.Size(190, 17);
             this.checkKeys.TabIndex = 13;
@@ -412,7 +413,7 @@
             // checkDecorations
             // 
             this.checkDecorations.AutoSize = true;
-            this.checkDecorations.Location = new System.Drawing.Point(138, 463);
+            this.checkDecorations.Location = new System.Drawing.Point(138, 434);
             this.checkDecorations.Name = "checkDecorations";
             this.checkDecorations.Size = new System.Drawing.Size(147, 17);
             this.checkDecorations.TabIndex = 17;
@@ -423,7 +424,7 @@
             // checkForGame
             // 
             this.checkForGame.AutoSize = true;
-            this.checkForGame.Location = new System.Drawing.Point(138, 492);
+            this.checkForGame.Location = new System.Drawing.Point(138, 463);
             this.checkForGame.Name = "checkForGame";
             this.checkForGame.Size = new System.Drawing.Size(130, 17);
             this.checkForGame.TabIndex = 19;
@@ -547,11 +548,23 @@
             this.checkBoxIsLiftInMeat.Text = "Лифт в мясе";
             this.checkBoxIsLiftInMeat.UseVisualStyleBackColor = true;
             // 
+            // checkLayerStyles
+            // 
+            this.checkLayerStyles.AutoSize = true;
+            this.checkLayerStyles.Location = new System.Drawing.Point(138, 492);
+            this.checkLayerStyles.Name = "checkLayerStyles";
+            this.checkLayerStyles.Size = new System.Drawing.Size(169, 17);
+            this.checkLayerStyles.TabIndex = 22;
+            this.checkLayerStyles.Text = "Показывать этажные стили";
+            this.checkLayerStyles.UseVisualStyleBackColor = true;
+            this.checkLayerStyles.CheckedChanged += new System.EventHandler(this.DrawMansion);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(516, 782);
+            this.Controls.Add(this.checkLayerStyles);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.buttonOpenModel);
             this.Controls.Add(this.groupBox4);
@@ -630,6 +643,7 @@
         private System.Windows.Forms.CheckBox checkBoxLayersShuffled;
         private System.Windows.Forms.CheckBox checkBoxLayers9;
         private System.Windows.Forms.CheckBox checkBoxIsLiftInMeat;
+        private System.Windows.Forms.CheckBox checkLayerStyles;
     }
 }
 

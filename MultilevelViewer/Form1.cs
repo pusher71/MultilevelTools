@@ -109,7 +109,9 @@ namespace MultilevelViewer
                 config.DrawDecorations = checkDecorations.Checked;
 
                 BitmapMazeDrawer mazeDrawer = new BitmapMazeDrawer(maze, config, forGame);
-                pictureBox1.Image = mazeDrawer.Draw();
+                pictureBox1.Image = mazeDrawer.Draw(checkLayerStyles.Checked,
+                    Utils.GetLayerStyles(maze, (int)numericSeed.Value,
+                    checkBoxLayersShuffled.Checked, checkBoxLayers9.Checked));
                 pictureBox1.Size = new Size(pictureBox1.Image.Width, pictureBox1.Image.Height);
             }
         }

@@ -129,6 +129,20 @@
     <None Include="bin\Debug\stairs_up.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\layer_style_14.png" />
+    <None Include="Resources\layer_style_13.png" />
+    <None Include="Resources\layer_style_12.png" />
+    <None Include="Resources\layer_style_11.png" />
+    <None Include="Resources\layer_style_10.png" />
+    <None Include="Resources\layer_style_9.png" />
+    <None Include="Resources\layer_style_8.png" />
+    <None Include="Resources\layer_style_7.png" />
+    <None Include="Resources\layer_style_6.png" />
+    <None Include="Resources\layer_style_5.png" />
+    <None Include="Resources\layer_style_4.png" />
+    <None Include="Resources\layer_style_3.png" />
+    <None Include="Resources\layer_style_2.png" />
+    <None Include="Resources\layer_style_1.png" />
     <None Include="Resources\lock_color50_h.png" />
     <None Include="Resources\key_color50_v.png" />
     <None Include="Resources\key_color50_h.png" />
