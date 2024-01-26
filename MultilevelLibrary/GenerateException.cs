@@ -2,6 +2,8 @@
 {
     public class GenerateException : System.Exception
     {
-        public GenerateException(string message) : base(message) { }
+        public GenerateException(string message) : base(message)
+        {
+        }
     }
 }
