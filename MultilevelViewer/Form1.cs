@@ -18,10 +18,17 @@ namespace MultilevelViewer
         private int currentTemplateIndex; //номер текущего режима игры
         private int currentDifficulty; //текущая сложность
 
+        private TimeSpan safetyDeadendsTime; //время исполнения алгоритма обезопасивания тупиков
+        private TimeSpan safetyCamerasTime; //время исполнения алгоритма обезопасивания коридоров от камер
+        private void SafetyDeadendsTimeGot(TimeSpan time) => safetyDeadendsTime = time;
+        private void SafetyCamerasTimeGot(TimeSpan time) => safetyCamerasTime = time;
+
         public Form1()
         {
             InitializeComponent();
             generator = new GeneratorMain();
+            generator.SafetyDeadendsTimeGot += SafetyDeadendsTimeGot;
+            generator.SafetyCamerasTimeGot += SafetyCamerasTimeGot;
 
             //загрузить режимы игры
             FileTemplateStorage templateStorage = new FileTemplateStorage();
@@ -103,6 +110,16 @@ namespace MultilevelViewer
                 throw new ConditionException("Условие conditionSaveFloor не сработало.");
             if (conditionRadarFloor.Checked && GetItemCountOnFloor(maze, (int)numericRadarFloor.Value - 1, (i) => Utils.IsRadarRoom(i)) == 0)
                 throw new ConditionException("Условие conditionRadarFloor не сработало.");
+
+            //отобразить время, затраченное на алгоритмы обезопасивания
+            if (checkBoxShowSafetyTime.Checked)
+                MessageBox.Show($"Обезопасивания тупиков =\n" +
+                    $"{safetyDeadendsTime.ToString()}\n" +
+                    $"\n" +
+                    $"Обезопасивания длинных коридоров от камер =\n" +
+                    $"{safetyCamerasTime.ToString()}",
+                    "Времена исполнения алгоритмов обезопасивания",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         //посчитать элементы на этаже, соответствующие условию

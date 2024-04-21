@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using MultilevelLibrary.Generation;
 using MultilevelLibrary.Generation.Model;
@@ -11,6 +12,10 @@ namespace MultilevelLibrary
     {
         private MultilevelMaze maze; //генерируемый лабиринт
         private List<LogicPos>[] stairsPositions; //список позиций для ступенек
+
+        public delegate void _safetyAlgTimeGot(TimeSpan time);
+        public event _safetyAlgTimeGot SafetyDeadendsTimeGot; //получено время исполнения алгоритма обезопасивания тупиков
+        public event _safetyAlgTimeGot SafetyCamerasTimeGot; //получено время исполнения алгоритма обезопасивания коридоров от камер
 
         //сгенерировать помещения с лифтом и лестницами
         public void Generate(MultilevelMaze maze, int seed,
@@ -131,6 +136,8 @@ namespace MultilevelLibrary
             List<LogicPos>[] trapsByFloor = null;
             if (enableSafety)
             {
+                Stopwatch watch = Stopwatch.StartNew();
+
                 //пометить непросматриваемые циклы как безопасные позиции
                 CyclesFinder.MarkSafetyCycles(graph);
 
@@ -143,6 +150,9 @@ namespace MultilevelLibrary
                 //получить позиции ловушек
                 r.Init(seed);
                 trapsByFloor = TrapsFinder.MarkTraps(maze, graph, trapsZones);
+
+                watch.Stop();
+                SafetyDeadendsTimeGot?.Invoke(watch.Elapsed);
             }
 
             //найти доступные позиции для безопасных комнат
@@ -274,8 +284,13 @@ namespace MultilevelLibrary
                     for (int i = 0; i < roomPositionsUsed.Count; i++)
                         graph.GetGraphNode(roomPositionsUsed[i].Position / 2).IsSafetyRoom = true;
 
+                    Stopwatch watch = Stopwatch.StartNew();
+
                     //создать группы подчастей путей, записывающих себя в GraphNodes (для ограничения расставления камер)
                     SubPathGroupsFinder.CreateSubPathGroups(maze, trapsZones);
+
+                    watch.Stop();
+                    SafetyCamerasTimeGot?.Invoke(watch.Elapsed);
                 }
 
                 //расставить камеры

@@ -83,10 +83,11 @@
             this.buttonOpenModel = new System.Windows.Forms.Button();
             this.opendialog = new System.Windows.Forms.OpenFileDialog();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.checkBoxLayers9 = new System.Windows.Forms.CheckBox();
             this.checkBoxCamerasEnabled = new System.Windows.Forms.CheckBox();
             this.checkBoxHolesEnabled = new System.Windows.Forms.CheckBox();
             this.checkBoxLayersShuffled = new System.Windows.Forms.CheckBox();
-            this.checkBoxLayers9 = new System.Windows.Forms.CheckBox();
+            this.checkBoxShowSafetyTime = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericSeed)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -170,6 +171,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.checkBoxShowSafetyTime);
             this.groupBox1.Controls.Add(this.checkBoxEnableSafety);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.numericBottlesCount);
@@ -810,6 +812,16 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Experimental";
             // 
+            // checkBoxLayers9
+            // 
+            this.checkBoxLayers9.AutoSize = true;
+            this.checkBoxLayers9.Location = new System.Drawing.Point(132, 19);
+            this.checkBoxLayers9.Name = "checkBoxLayers9";
+            this.checkBoxLayers9.Size = new System.Drawing.Size(32, 17);
+            this.checkBoxLayers9.TabIndex = 3;
+            this.checkBoxLayers9.Text = "9";
+            this.checkBoxLayers9.UseVisualStyleBackColor = true;
+            // 
             // checkBoxCamerasEnabled
             // 
             this.checkBoxCamerasEnabled.AutoSize = true;
@@ -842,15 +854,17 @@
             this.checkBoxLayersShuffled.Text = "Слои перемешаны";
             this.checkBoxLayersShuffled.UseVisualStyleBackColor = true;
             // 
-            // checkBoxLayers9
+            // checkBoxShowSafetyTime
             // 
-            this.checkBoxLayers9.AutoSize = true;
-            this.checkBoxLayers9.Location = new System.Drawing.Point(132, 19);
-            this.checkBoxLayers9.Name = "checkBoxLayers9";
-            this.checkBoxLayers9.Size = new System.Drawing.Size(32, 17);
-            this.checkBoxLayers9.TabIndex = 3;
-            this.checkBoxLayers9.Text = "9";
-            this.checkBoxLayers9.UseVisualStyleBackColor = true;
+            this.checkBoxShowSafetyTime.AutoSize = true;
+            this.checkBoxShowSafetyTime.Checked = true;
+            this.checkBoxShowSafetyTime.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxShowSafetyTime.Location = new System.Drawing.Point(225, 358);
+            this.checkBoxShowSafetyTime.Name = "checkBoxShowSafetyTime";
+            this.checkBoxShowSafetyTime.Size = new System.Drawing.Size(110, 17);
+            this.checkBoxShowSafetyTime.TabIndex = 28;
+            this.checkBoxShowSafetyTime.Text = "Показать время";
+            this.checkBoxShowSafetyTime.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -968,6 +982,7 @@
         private System.Windows.Forms.CheckBox checkBoxHolesEnabled;
         private System.Windows.Forms.CheckBox checkBoxLayersShuffled;
         private System.Windows.Forms.CheckBox checkBoxLayers9;
+        private System.Windows.Forms.CheckBox checkBoxShowSafetyTime;
     }
 }
 
