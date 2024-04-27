@@ -93,8 +93,6 @@ namespace MultilevelLibrary
             {
                 if (ec == EmptyCondition.DEADEND)
                     return IsDeadend(position, out dirs);
-                else if (ec == EmptyCondition.CAMERA)
-                    return IsAboveWall(position, out dirs) && !IsDeadend(position, out _);
                 else if (ec == EmptyCondition.ABOVE_BORDER)
                     return IsAboveBorder(position, out dirs, 2);
                 else //EmptyCondition.EMPTY
