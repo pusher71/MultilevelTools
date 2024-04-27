@@ -13,7 +13,7 @@ namespace MultilevelLibrary
         public void Generate(MultilevelMaze maze, int seed,
             int stairsCount, int deleteWalls,
             int liftPredel, int keyCount,
-            bool layersShuffled, bool layers9,
+            int layersMode,
             bool holesEnabled, bool isLiftInMeat)
         {
             this.maze = maze;
@@ -149,7 +149,7 @@ namespace MultilevelLibrary
             maze.KeyMap.Set(maze.PlayerPosition.Position / 2, Utils.IndexPlayer);
 
             //получить стили слоёв
-            int[] layerStyles = Utils.GetLayerStyles(maze, seed, layersShuffled, layers9);
+            int[] layerStyles = Utils.GetLayerStyles(maze, seed, layersMode);
 
             //расставить окна
             r.Init(seed);

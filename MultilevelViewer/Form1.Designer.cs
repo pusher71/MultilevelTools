@@ -63,11 +63,13 @@
             this.buttonOpenModel = new System.Windows.Forms.Button();
             this.opendialog = new System.Windows.Forms.OpenFileDialog();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.checkBoxLayers9 = new System.Windows.Forms.CheckBox();
-            this.checkBoxHolesEnabled = new System.Windows.Forms.CheckBox();
-            this.checkBoxLayersShuffled = new System.Windows.Forms.CheckBox();
             this.checkBoxIsLiftInMeat = new System.Windows.Forms.CheckBox();
+            this.checkBoxHolesEnabled = new System.Windows.Forms.CheckBox();
             this.checkLayerStyles = new System.Windows.Forms.CheckBox();
+            this.radioButtonLayersMode0 = new System.Windows.Forms.RadioButton();
+            this.radioButtonLayersMode1 = new System.Windows.Forms.RadioButton();
+            this.radioButtonLayersMode2 = new System.Windows.Forms.RadioButton();
+            this.radioButtonLayersMode3 = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericSeed)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -448,7 +450,7 @@
             this.groupBox4.Controls.Add(this.buttonSaveAtlas);
             this.groupBox4.Controls.Add(this.label13);
             this.groupBox4.Controls.Add(this.numericAtlasCountX);
-            this.groupBox4.Location = new System.Drawing.Point(192, 619);
+            this.groupBox4.Location = new System.Drawing.Point(192, 688);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(176, 74);
             this.groupBox4.TabIndex = 2;
@@ -497,56 +499,38 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.radioButtonLayersMode3);
+            this.groupBox5.Controls.Add(this.radioButtonLayersMode2);
+            this.groupBox5.Controls.Add(this.radioButtonLayersMode1);
+            this.groupBox5.Controls.Add(this.radioButtonLayersMode0);
             this.groupBox5.Controls.Add(this.checkBoxIsLiftInMeat);
-            this.groupBox5.Controls.Add(this.checkBoxLayers9);
             this.groupBox5.Controls.Add(this.checkBoxHolesEnabled);
-            this.groupBox5.Controls.Add(this.checkBoxLayersShuffled);
             this.groupBox5.Location = new System.Drawing.Point(192, 517);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(176, 96);
+            this.groupBox5.Size = new System.Drawing.Size(176, 165);
             this.groupBox5.TabIndex = 21;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Experimental";
             // 
-            // checkBoxLayers9
-            // 
-            this.checkBoxLayers9.AutoSize = true;
-            this.checkBoxLayers9.Location = new System.Drawing.Point(132, 19);
-            this.checkBoxLayers9.Name = "checkBoxLayers9";
-            this.checkBoxLayers9.Size = new System.Drawing.Size(32, 17);
-            this.checkBoxLayers9.TabIndex = 3;
-            this.checkBoxLayers9.Text = "9";
-            this.checkBoxLayers9.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxHolesEnabled
-            // 
-            this.checkBoxHolesEnabled.AutoSize = true;
-            this.checkBoxHolesEnabled.Location = new System.Drawing.Point(6, 42);
-            this.checkBoxHolesEnabled.Name = "checkBoxHolesEnabled";
-            this.checkBoxHolesEnabled.Size = new System.Drawing.Size(96, 17);
-            this.checkBoxHolesEnabled.TabIndex = 1;
-            this.checkBoxHolesEnabled.Text = "Дырки в полу";
-            this.checkBoxHolesEnabled.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxLayersShuffled
-            // 
-            this.checkBoxLayersShuffled.AutoSize = true;
-            this.checkBoxLayersShuffled.Location = new System.Drawing.Point(6, 19);
-            this.checkBoxLayersShuffled.Name = "checkBoxLayersShuffled";
-            this.checkBoxLayersShuffled.Size = new System.Drawing.Size(120, 17);
-            this.checkBoxLayersShuffled.TabIndex = 0;
-            this.checkBoxLayersShuffled.Text = "Слои перемешаны";
-            this.checkBoxLayersShuffled.UseVisualStyleBackColor = true;
-            // 
             // checkBoxIsLiftInMeat
             // 
             this.checkBoxIsLiftInMeat.AutoSize = true;
-            this.checkBoxIsLiftInMeat.Location = new System.Drawing.Point(6, 65);
+            this.checkBoxIsLiftInMeat.Location = new System.Drawing.Point(6, 134);
             this.checkBoxIsLiftInMeat.Name = "checkBoxIsLiftInMeat";
             this.checkBoxIsLiftInMeat.Size = new System.Drawing.Size(91, 17);
             this.checkBoxIsLiftInMeat.TabIndex = 4;
             this.checkBoxIsLiftInMeat.Text = "Лифт в мясе";
             this.checkBoxIsLiftInMeat.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxHolesEnabled
+            // 
+            this.checkBoxHolesEnabled.AutoSize = true;
+            this.checkBoxHolesEnabled.Location = new System.Drawing.Point(6, 111);
+            this.checkBoxHolesEnabled.Name = "checkBoxHolesEnabled";
+            this.checkBoxHolesEnabled.Size = new System.Drawing.Size(96, 17);
+            this.checkBoxHolesEnabled.TabIndex = 1;
+            this.checkBoxHolesEnabled.Text = "Дырки в полу";
+            this.checkBoxHolesEnabled.UseVisualStyleBackColor = true;
             // 
             // checkLayerStyles
             // 
@@ -558,6 +542,48 @@
             this.checkLayerStyles.Text = "Показывать этажные стили";
             this.checkLayerStyles.UseVisualStyleBackColor = true;
             this.checkLayerStyles.CheckedChanged += new System.EventHandler(this.DrawMansion);
+            // 
+            // radioButtonLayersMode0
+            // 
+            this.radioButtonLayersMode0.AutoSize = true;
+            this.radioButtonLayersMode0.Location = new System.Drawing.Point(6, 19);
+            this.radioButtonLayersMode0.Name = "radioButtonLayersMode0";
+            this.radioButtonLayersMode0.Size = new System.Drawing.Size(79, 17);
+            this.radioButtonLayersMode0.TabIndex = 5;
+            this.radioButtonLayersMode0.Text = "Авторский";
+            this.radioButtonLayersMode0.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonLayersMode1
+            // 
+            this.radioButtonLayersMode1.AutoSize = true;
+            this.radioButtonLayersMode1.Location = new System.Drawing.Point(6, 42);
+            this.radioButtonLayersMode1.Name = "radioButtonLayersMode1";
+            this.radioButtonLayersMode1.Size = new System.Drawing.Size(100, 17);
+            this.radioButtonLayersMode1.TabIndex = 6;
+            this.radioButtonLayersMode1.Text = "Полностью 9-й";
+            this.radioButtonLayersMode1.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonLayersMode2
+            // 
+            this.radioButtonLayersMode2.AutoSize = true;
+            this.radioButtonLayersMode2.Checked = true;
+            this.radioButtonLayersMode2.Location = new System.Drawing.Point(6, 65);
+            this.radioButtonLayersMode2.Name = "radioButtonLayersMode2";
+            this.radioButtonLayersMode2.Size = new System.Drawing.Size(93, 17);
+            this.radioButtonLayersMode2.TabIndex = 7;
+            this.radioButtonLayersMode2.TabStop = true;
+            this.radioButtonLayersMode2.Text = "Перемешаны";
+            this.radioButtonLayersMode2.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonLayersMode3
+            // 
+            this.radioButtonLayersMode3.AutoSize = true;
+            this.radioButtonLayersMode3.Location = new System.Drawing.Point(6, 88);
+            this.radioButtonLayersMode3.Name = "radioButtonLayersMode3";
+            this.radioButtonLayersMode3.Size = new System.Drawing.Size(87, 17);
+            this.radioButtonLayersMode3.TabIndex = 8;
+            this.radioButtonLayersMode3.Text = "Пещеры MC";
+            this.radioButtonLayersMode3.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -640,10 +666,12 @@
         private System.Windows.Forms.OpenFileDialog opendialog;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.CheckBox checkBoxHolesEnabled;
-        private System.Windows.Forms.CheckBox checkBoxLayersShuffled;
-        private System.Windows.Forms.CheckBox checkBoxLayers9;
         private System.Windows.Forms.CheckBox checkBoxIsLiftInMeat;
         private System.Windows.Forms.CheckBox checkLayerStyles;
+        private System.Windows.Forms.RadioButton radioButtonLayersMode3;
+        private System.Windows.Forms.RadioButton radioButtonLayersMode2;
+        private System.Windows.Forms.RadioButton radioButtonLayersMode1;
+        private System.Windows.Forms.RadioButton radioButtonLayersMode0;
     }
 }
 

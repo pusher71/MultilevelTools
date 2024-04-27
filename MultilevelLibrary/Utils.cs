@@ -38,7 +38,7 @@ namespace MultilevelLibrary
         public static bool IsFireTube(int item) => item >= IndexFireTube && item < IndexFireTube + 4;
 
         //получить стили слоёв по вертикальным размерам помещения
-        public static int[] GetLayerStyles(MultilevelMaze maze, int seed, bool layersShuffled, bool layers9)
+        public static int[] GetLayerStyles(MultilevelMaze maze, int seed, int layersMode)
         {
             //вычислить порядок стилей слоёв
             int[] stylesOrder = new int[maze.CountInside % Constants.STYLES_COUNT];
@@ -55,7 +55,7 @@ namespace MultilevelLibrary
                 if (i < maze.CountInside * 2)
                 {
                     //задать стиль этажа
-                    if (layers9)
+                    if (layersMode == 1) //полностью 9-й
                         layerStyles[i] = 8;
                     else
                     {
@@ -71,7 +71,7 @@ namespace MultilevelLibrary
             }
 
             //перемешать стили слоёв
-            if (layersShuffled)
+            if (layersMode == 2)
             {
                 r.Init(seed);
                 for (int i = 0; i < maze.CountInside; i++)
@@ -90,6 +90,11 @@ namespace MultilevelLibrary
                     layerStyles[rnd2] = key2;
                 }
             }
+
+            //трансформировать в пещеры MC
+            if (layersMode == 3)
+                for (int i = 0; i < maze.CountInside * 2; i++)
+                    layerStyles[i] = Constants.STYLES_MC_CAVES[layerStyles[i]];
 
             return layerStyles;
         }

@@ -6,7 +6,8 @@
         public const int MAX_FLOOR_SQUARE = 8 * 14; //максимальная площадь этажа
         public const int MAX_MAZE_VOLUME = MAX_FLOOR_SQUARE * 100; //максимальный объём особняка
         public const int STYLES_COUNT = 14; //количество стилей
-        public static readonly int[] STYLES_ORDER_INTERNAL = new int[STYLES_COUNT] { 8, 9, 2, 11, 7, 5, 6, 3, 12, 0, 4, 1, 10, 13 }; //общий порядок стилей
+        public static readonly int[] STYLES_ORDER_INTERNAL = new int[STYLES_COUNT] { 8, 9, 2, 11, 7, 5, 6, 3, 12, 0, 4, 1, 10, 13 }; //общий порядок добавления стилей
+        public static readonly int[] STYLES_MC_CAVES = new int[STYLES_COUNT] { 8, 7, 10, 5, 2, 1, 4, 0, 9, 11, 3, 6, 12, 13 }; //порядок стилей пещер MC
         public const int DIGGER_ENERGY = 5; //энергия копателя
         public const int ROOF_STYLE = 3; //номер стиля для выходной будки
         public const int STYLE_WITH_WINDOWS_THRESHOLD = 2; //номер стиля, начиная с которого расставляются окна

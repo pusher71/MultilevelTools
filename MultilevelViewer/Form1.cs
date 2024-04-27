@@ -91,7 +91,7 @@ namespace MultilevelViewer
             generator.Generate(maze, seed,
                 (int)numericStairsCount.Value, (int)numericDeleteWalls.Value,
                 (int)numericLiftPredel.Value, (int)numericKeyCount.Value,
-                checkBoxLayersShuffled.Checked, checkBoxLayers9.Checked,
+                GetLayersMode(),
                 checkBoxHolesEnabled.Checked, checkBoxIsLiftInMeat.Checked);
         }
 
@@ -111,7 +111,7 @@ namespace MultilevelViewer
                 BitmapMazeDrawer mazeDrawer = new BitmapMazeDrawer(maze, config, forGame);
                 pictureBox1.Image = mazeDrawer.Draw(checkLayerStyles.Checked,
                     Utils.GetLayerStyles(maze, (int)numericSeed.Value,
-                    checkBoxLayersShuffled.Checked, checkBoxLayers9.Checked));
+                    GetLayersMode()));
                 pictureBox1.Size = new Size(pictureBox1.Image.Width, pictureBox1.Image.Height);
             }
         }
@@ -191,6 +191,14 @@ namespace MultilevelViewer
         {
             int value = (int)numericCount.Value;
             numericLiftPredel.Maximum = value + 2;
+        }
+
+        private int GetLayersMode()
+        {
+            if (radioButtonLayersMode0.Checked) return 0;
+            else if (radioButtonLayersMode1.Checked) return 1;
+            else if (radioButtonLayersMode2.Checked) return 2;
+            else return 3;
         }
     }
 }
