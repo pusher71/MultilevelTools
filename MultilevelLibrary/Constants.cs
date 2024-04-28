@@ -8,6 +8,7 @@
         public const int STYLES_COUNT = 14; //количество стилей
         public static readonly int[] STYLES_ORDER_INTERNAL = new int[STYLES_COUNT] { 8, 9, 2, 11, 7, 5, 6, 3, 12, 0, 4, 1, 10, 13 }; //общий порядок добавления стилей
         public static readonly int[] STYLES_MC_CAVES = new int[STYLES_COUNT] { 8, 7, 10, 5, 2, 1, 4, 0, 9, 11, 3, 6, 12, 13 }; //порядок стилей пещер MC
+        public static readonly int[] MC_CAVE_SOUND_BY_STYLE = new int[STYLES_COUNT] { 7, 5, 4, 10, 6, 3, 11, 1, 0, 8, 2, 9, 12, 13 }; //определение пещерного звука MC по стилю
         public const int DIGGER_ENERGY = 5; //энергия копателя
         public const int ROOF_STYLE = 3; //номер стиля для выходной будки
         public const int STYLE_WITH_WINDOWS_THRESHOLD = 2; //номер стиля, начиная с которого расставляются окна

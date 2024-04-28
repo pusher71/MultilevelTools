@@ -155,13 +155,13 @@ namespace MultilevelLibrary
             IsOutOfRange(position + direction * dist);
 
         //позиция находится за пределами карты
-        private bool IsOutOfRange(Vector3P position) =>
+        private bool IsOutOfRange(Vector3P position, bool inside = false) =>
             position.X < 0 ||
             position.Y < 0 ||
             position.Z < 0 ||
             position.X > Width * 2 ||
             position.Y > Height * 2 ||
-            position.Z > Count * 2;
+            position.Z > (inside ? CountInside : Count) * 2;
 
         //получить список застроенных позиций
         internal List<Vector3P> GetWallPositions(int floor)
@@ -179,6 +179,16 @@ namespace MultilevelLibrary
 
         //данная позиция является одиночной колонной
         internal bool IsSinglePillar(Vector3P position) => !IsAboveWall(position, out _);
+
+        //место годится для расположения пещерного звука MC
+        public bool IsSoundMCCaveCanPlaced(Vector3P position)
+        {
+            if (IsOutOfRange(position, true)) return false;
+            int item = Map.Get(position);
+            return item == Utils.IndexAir ||
+                (item == Utils.IndexStairsP &&
+                Map.Get(position + Vector3P.Down) != Utils.IndexWall);
+        }
 
         //может ли кто-либо пойти по данному направлению
         internal bool IsEverybodyCanGo(Vector3P position, Vector3P direction) =>
