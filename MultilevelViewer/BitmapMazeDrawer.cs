@@ -130,12 +130,10 @@ namespace MultilevelViewer
             Color.Aqua,
             Color.FromArgb(112, 48, 160),
             Color.FromArgb(170, 255, 0),
-            Color.FromArgb(0, 255, 128),
             Color.DarkRed,
             Color.SaddleBrown,
             Color.Green,
-            Color.Gray,
-            Color.FromArgb(32, 32, 32)
+            Color.FromArgb(64, 64, 64)
         };
 
         //текстуры цветных замков
