@@ -98,5 +98,41 @@ namespace MultilevelLibrary
 
             return layerStyles;
         }
+
+        //получить ушатанность дверей лифта для каждой этажной двери
+        /*
+         * 0 - плотно
+         * 1 - всегда открыты
+         * 2 - всеобщая узкая щель
+         * 3 - плотно и с грохотом
+         * 4 - широкая щель 3
+         * 5 - широкая щель 6
+         * 6 - широкая щель 11
+         * 7 - широкая щель 12
+         * 8 - широкая щель 14
+         */
+        public static int[] GetLiftDoorBrokens(int count, int seed, int liftDoorBrokenMode)
+        {
+            int[] result = new int[count];
+            r.Init(seed);
+            for (int i = 0; i < count; i++)
+                switch(liftDoorBrokenMode)
+                {
+                    case 0: //плотно
+                        result[i] = 0;
+                        break;
+                    case 1: //узкие щели
+                        result[i] = r.Next(14) < 2 ? 3 : 2;
+                        break;
+                    case 2: //широкие щели
+                        result[i] = r.Next(3) == 0 ? r.Next(4, 9) : 3;
+                        break;
+                    case 3: //всегда открыты
+                        result[i] = 1;
+                        break;
+                }
+
+            return result;
+        }
     }
 }
