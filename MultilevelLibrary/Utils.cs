@@ -125,7 +125,7 @@ namespace MultilevelLibrary
                         result[i] = r.Next(14) < 2 ? 3 : 2;
                         break;
                     case 2: //широкие щели
-                        result[i] = r.Next(3) == 0 ? r.Next(4, 9) : 3;
+                        result[i] = r.Next(2) == 0 ? r.Next(4, 9) : 3;
                         break;
                     case 3: //всегда открыты
                         result[i] = 1;
