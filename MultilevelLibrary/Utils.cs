@@ -104,12 +104,13 @@ namespace MultilevelLibrary
          * 0 - плотно
          * 1 - всегда открыты
          * 2 - всеобщая узкая щель
-         * 3 - плотно и с грохотом
-         * 4 - широкая щель 3
-         * 5 - широкая щель 6
-         * 6 - широкая щель 11
-         * 7 - широкая щель 12
-         * 8 - широкая щель 14
+         * 3 - всеобщая узкая щель с грохотом
+         * 4 - плотно с грохотом
+         * 5 - широкая щель 3
+         * 6 - широкая щель 6
+         * 7 - широкая щель 11
+         * 8 - широкая щель 12
+         * 9 - широкая щель 14
          */
         public static int[] GetLiftDoorBrokens(int count, int seed, int liftDoorBrokenMode)
         {
@@ -125,7 +126,7 @@ namespace MultilevelLibrary
                         result[i] = r.Next(14) < 2 ? 3 : 2;
                         break;
                     case 2: //широкие щели
-                        result[i] = r.Next(2) == 0 ? r.Next(4, 9) : 3;
+                        result[i] = r.Next(2) == 0 ? r.Next(5, 10) : 4;
                         break;
                     case 3: //всегда открыты
                         result[i] = 1;
